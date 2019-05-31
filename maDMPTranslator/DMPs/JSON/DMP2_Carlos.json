@@ -1,0 +1,112 @@
+{
+  "dmp": {
+    "title": "DS_2019S_Population and Erasmus Students in Austria",
+    "description": "This experiment shows the composition of the population in Vienna regarding the country of origin of the habitants with a permanent residence from 2008 to 2018. The goal of the experiment is to characterize the distribution in terms of gender and age in the year 2012. Furthermore, in the second part of the experiment, it is analyzed the origin of the Erasmus students coming to Austria from other countries in Europe regarding the grant in euros that they receive, the age, the number of ECTS that they enrol and the gender, characterizing these features in box plots to represent the distribution of the samples.",
+    "created": "2019-04-20T10:10:23.6",
+    "modified": "2019-04-23T00:00:00",
+    "project": [
+        
+        {
+         "title":"TU Wien - Data Stewardship 2019S - Exercise 1",
+         "description":"The exercise consists of two parts:
+                        • data science use case - to design an experiment that uses open data;
+                        • data management - to create a data management plan and publish your experiment;",
+         "projectStart":"2019-03-11T00:00:00",
+         "projectEnd":"2019-04-22T23:59:00"
+         "_funding":[
+         ]
+        }
+    ],
+    "cost":[
+        {
+        "title":"Costs and potential value of long term preservation",
+        "description":"Even for the long-term preservation, it is stored in GitHub that even for future data migration, the DOIs will stay working just as fine according to the same subscription plan.",
+        "_description": "Public and free repositories are used to preserve the data in the long-term, there are no costs related.",
+        "_costType":"GitHub",
+        "costValue":"0.0",
+        "costUnit":"EUR"        
+        }
+    
+    
+    ],    
+    "contact": {
+      "mail": "carlosvargas9103@gmail.com",
+      "name": "Carlos Alberto Vargas Rivera",
+      "contact_id": {
+        "contact_id": "https://orcid.org/0000-0002-1757-3249",
+        "contact_id_type": "HTTP-ORCID"
+      }
+    },
+    "language": "en",
+    "ethical_issues_exist": "no",
+    "ethical_issues_reported": "no",
+    "ethical_issues_description": "The data generated is anonymous.",
+    "dataset": [
+      {
+        "title": "Catalog Population according to foreign origin since 2011 Vienna",
+        "description": "Population in Vienna by migration background, age and sex since 2011",
+        "type": "CSV",
+        "keyword" : ["population", "ancestry", "migration", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"],
+        "issued": "2019-03-18T15:39:40",
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "_datasetID": {
+            "identifier": "6ad08aa5-98b8-45eb-a960-4ed974c09a27",
+            "identifier_type": "unknown"
+        },
+        "distribution": [
+          {
+            "title": "data.gv.at",
+            "description": "data.gv.at is operated with a metadata catalog based on OGD metadata Austria. data.gv.at is the "single point of contact" to the European Data Portal .",
+            "format": "CSV",
+            "byte_size": "181745",
+            "download_url": "https://www.wien.gv.at/statistik/ogd/vie_105.csv",
+            "access_url": "https://www.data.gv.at/katalog/dataset/stadt-wien_viebevlkerungnachmigrationshintergrundseit2011wien",
+            "data_access": "open",
+            "_license": [
+              {
+                "_license_ref": "unknown",
+                "_active_from": "2010-12-31T00:00:00",
+                "_start_date": "2018-12-31T00:00:00"
+              }
+            ],
+            "_available_till": "2020-03-23T00:00:00"
+          }
+        ]
+      },
+      {
+        "title": "Raw data of Erasmus student mobility (study exchanges and work placements in 2012-13).",
+        "description": "Raw data of Erasmus student mobility (study exchanges and work placements in 2012-13).",
+        "type": "CSV",
+        "keyword" : ["Erasmus", "students", "mobility", "2014"],
+        "issued": "2015-05-12T00:00:00",
+        "_dataset_id": {
+          "dataset_id": "10.5281/zenodo.1200361",
+          "dataset_id_type": "DOI-RAW"
+        },
+        "personal_data": "no",
+        "sensitive_data": "no",
+        "data_quality_assurance": "unknown",
+        "distribution": [
+          {
+            "title": "European Union Open Data Portal",
+            "description": "The European Union Open Data Portal (EU ODP) provides access to an expanding range of data from the European Union (EU) institutions and other EU bodies. You can use and reuse these data for commercial or non-commercial purposes.",
+            "format": "CSV",
+            "byte_size": "44697",
+            "access_url": "https://data.europa.eu/euodp/en/data/dataset/erasmus-mobility-statistics-2012-13/resource/6f58af9e-356d-47f1-a6b4-13bc049a2fa8",
+            "download_url": "http://data.europa.eu/euodp/data/uploads/EAC/SM_2012_13_20141103_01.csv",
+            "data_access": "open",
+            "_license": [
+              {
+                "_license_ref": "unknown",
+                "_active_from": "2014-12-31T00:00:00",
+                "_start_date": "2018-12-31T00:00:00"
+              }
+            ],
+            "_available_till": "2020-03-23T00:00:00"
+          }
+        ]
+      }
+    ]
+  }
+}
