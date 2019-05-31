@@ -16,7 +16,8 @@ namespace maDMPTranslator.Models.RDA_DMP
         [ForeignKey("DMPID")]
         public virtual DMP DMP { get; set; }
 
+        public TypedIdentifier ContactID { get; set; }
         public string Name { get; set; }
-        public string MailBox { get; set; }
+        public string MBox { get; set; }
     }
 }
