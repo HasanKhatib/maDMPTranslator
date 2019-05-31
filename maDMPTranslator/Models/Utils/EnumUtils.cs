@@ -45,7 +45,7 @@ namespace maDMPTranslator.Models.Utils
         /// Used in TypeIdentifier Class
         /// </summary>
         public enum IdentifierTypeEnum {
-            ORCID,DOI,URI
+            ORCID,DOI,URI,HTTPURL
         }
         /// <summary>
         /// Used in DMStaff class
