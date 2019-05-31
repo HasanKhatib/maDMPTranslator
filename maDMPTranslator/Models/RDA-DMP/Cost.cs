@@ -12,13 +12,15 @@ namespace maDMPTranslator.Models.RDA_DMP
     {
         [Key]
         public Guid ID { get; set; }
+
+        public Guid DMPID { get; set; }
         [ForeignKey("DMPID")]
         public virtual DMP DMP { get; set; }
-        public Guid DMPID { get; set; }
+
         public string Title { get; set; }
         public string Description { get; set; }
         public CostTypeEnum CostType { get; set; }
-        public int CostValue { get; set; }
+        public int Value { get; set; }
         public CostUnitEnum CostUnit { get; set; }
     }
 }

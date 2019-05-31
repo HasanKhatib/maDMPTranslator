@@ -19,10 +19,13 @@ namespace maDMPTranslator.Models.RDA_DMP
 
         public string Title { get; set; }
         public string Description { get; set; }
+
+        public TypedIdentifier dmpID { get; set; }
+
         public string Language { get; set; }
-        public DateTime CreatedDate { get; set; } = DateTime.Now;
-        public DateTime ModifiedDate { get; set; } = DateTime.Now;
-        public YesNoUnkownEnum EthicalIssues { get; set; }
+        public DateTime Created { get; set; } = DateTime.Now;
+        public DateTime Modified { get; set; } = DateTime.Now;
+        public YesNoUnkownEnum EthicalssuesExist { get; set; }
         public string EthicalIssuesReport { get; set; }
         public string EthicalIssuesDescription { get; set; }
 
@@ -31,9 +34,9 @@ namespace maDMPTranslator.Models.RDA_DMP
         [ForeignKey("ContactID")]
         public virtual Contact Contact { get; set; }
         
-        public virtual List<DMStaff> DMStaff { get; set; }
-        public virtual List<Cost> CostList { get; set; }
-        public virtual List<Project> ProjectsList { get; set; }
-        public virtual List<Dataset> DatasetList { get; set; }
+        public virtual List<DMStaff> DM_staff { get; set; }
+        public virtual List<Cost> Cost { get; set; }
+        public virtual List<Project> Project { get; set; }
+        public virtual List<Dataset> Dataset { get; set; }
     }
 }

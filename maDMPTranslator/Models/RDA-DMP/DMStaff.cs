@@ -18,7 +18,7 @@ namespace maDMPTranslator.Models.RDA_DMP
         public virtual DMP DMP { get; set; }
 
         public string Name { get; set; }
-        public string MailBox { get; set; }
+        public string MBox { get; set; }
         public ContributionTypeEnum ContributionType { get; set; }
         
     }
