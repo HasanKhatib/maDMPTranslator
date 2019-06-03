@@ -303,13 +303,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50006</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-<<<<<<< HEAD
-          <IISUrl>http://localhost/maTranslator</IISUrl>
-=======
           <IISUrl>http://localhost/maDMPTranslator</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
           <IISAppRootUrl>http://localhost/maDMPTranslator</IISAppRootUrl>
->>>>>>> 22dc505d508ed119d4ab0da71ca0e17ffa7b9ddd
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
