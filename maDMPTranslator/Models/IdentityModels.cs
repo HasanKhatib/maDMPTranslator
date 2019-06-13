@@ -21,7 +21,7 @@ namespace maDMPTranslator.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("dmpTrans", throwIfV1Schema: false)
         {
         }
 

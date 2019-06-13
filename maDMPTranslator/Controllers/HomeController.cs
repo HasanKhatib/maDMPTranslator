@@ -13,5 +13,9 @@ namespace maDMPTranslator.Controllers
             return View();
         }
 
+        public ActionResult Convert() {
+            return View();
+        }
+
     }
 }

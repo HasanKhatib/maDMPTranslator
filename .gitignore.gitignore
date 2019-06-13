@@ -1,6 +1,0 @@
-packages
-/.vs
-.vs/*
-/maDMPTranslator/App_Data/*
-/maDMPTranslator/bin/*
-/maDMPTranslator/v15/*
