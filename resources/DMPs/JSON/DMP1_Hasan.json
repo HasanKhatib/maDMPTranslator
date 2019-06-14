@@ -5,32 +5,25 @@
     "created": "2018-07-23T10:10:23.6",
     "modified": "2019-04-20T00:00:00",
     "project": [
-        
-        {
-         "title":"TU Wien - Data Stewardship 2019S - Exercise 1",
-         "description":"The exercise consists of two parts:
-                        • data science use case - to design an experiment that uses open data;
-                        • data management - to create a data management plan and publish your experiment;",
-         "projectStart":"2019-03-11T00:00:00",
-         "projectEnd":"2019-04-22T23:59:00"
-         "_funding":[
-         ]
-        }
+      {
+        "title": "TU Wien - Data Stewardship 2019S - Exercise 1",
+        "description": "The exercise consists of two parts: data science use case - to design an experiment that uses open data; data management - to create a data management plan and publish your experiment;",
+        "projectStart": "2019-03-11T00:00:00",
+        "projectEnd": "2019-04-22T23:59:00",
+        "_funding": []
+      }
     ],
-    "cost":[
-        {
-        "title":"Costs and potential value of long term preservation",
-        "description":"Even for the long-term preservation, it is stated on Zenodo that even for future data migration, the DOIs will stay working just as fine according to the same subscription plan.",
-        "_costType":"Zenodo",
-        "costValue":"0.0",
-        "costUnit":"EUR"        
-        }
-    
-    
+    "cost": [
+      {
+        "title": "Costs and potential value of long term preservation",
+        "description": "Even for the long-term preservation, it is stated on Zenodo that even for future data migration, the DOIs will stay working just as fine according to the same subscription plan.",
+        "_costType": "Zenodo",
+        "costValue": "0.0",
+        "costUnit": "EUR"
+      }
     ],
-    "_projectDefinition":"",
-    
-    
+    "_projectDefinition": "",
+
     "contact": {
       "mail": "HASAN@EMAIL.COM",
       "name": "Hasan Alkhatib",
@@ -42,14 +35,13 @@
     "language": "en",
     "ethical_issues_exist": "no",
     "ethical_issues_reported": "no",
-    "ethical_issues_description": "To be covered in the context of the ethics review, ethics section of DoA and ethics deliverables. Include references and related technical aspects if not covered by the former.
-    Input data and the generated data content were completely anonymized, so with that being preserved on Zenodo, there will be no unethical act.",
+    "ethical_issues_description": "To be covered in the context of the ethics review, ethics section of DoA and ethics deliverables. Include references and related technical aspects if not covered by the former. Input data and the generated data content were completely anonymized, so with that being preserved on Zenodo, there will be no unethical act.",
     "dataset": [
       {
         "title": "LA crime data from 2010 to present",
         "description": "LA crime data from 2010 to present",
         "type": "CSV",
-        "keyword" : ["LA", "crime", "2010"],
+        "keyword": ["LA", "crime", "2010"],
         "issued": "2019-12-31T00:00:00",
         "personal_data": "no",
         "sensitive_data": "no",
@@ -77,7 +69,7 @@
         "title": "LA museum visitors",
         "description": "LA museum visitors",
         "type": "CSV",
-        "keyword" : ["LA", "museum", "visitors", "2014"],
+        "keyword": ["LA", "museum", "visitors", "2014"],
         "issued": "2015-05-12T00:00:00",
         "_dataset_id": {
           "dataset_id": "10.5281/zenodo.1200361",
