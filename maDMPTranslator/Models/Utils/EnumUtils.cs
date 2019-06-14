@@ -19,7 +19,7 @@ namespace maDMPTranslator.Models.Utils
         /// </summary>
         public enum CostUnitEnum
         {
-            Dollar, Euro
+            USD, EUR
         }
         /// <summary>
         /// Used in cost class

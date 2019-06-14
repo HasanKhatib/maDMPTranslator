@@ -10,5 +10,15 @@ namespace maDMPTranslator.Logic
     {
         public Dictionary<string, string> QuestionsDict = null;
         public Dictionary<string, string> AnswersDict = null;
+
+        public Dictionary<string, string> InitializeAnswersDict()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Dictionary<string, string> InitializeQuestionsDict()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
