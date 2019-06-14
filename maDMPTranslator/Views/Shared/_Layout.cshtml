@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        @Html.ActionLink("Convert", "Convert", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Convert", "Convert", "DMP", new { area = "" }, new { @class = "nav-link" })
                     </li>
                 </ul>
 
@@ -31,6 +31,52 @@
     </div>
     
     <div class="container body-content">
+        @{
+            if (TempData["ViewMessage"] is maDMPTranslator.Models.Utils.MessageResult)
+            {
+                var msg = TempData["ViewMessage"] as maDMPTranslator.Models.Utils.MessageResult;
+                var msgClass = string.Empty;
+                if (msg.Status.ToString() == "Fail")
+                {
+                    msgClass = "alert-danger";
+                }
+                else if (msg.Status.ToString() == "Success")
+                {
+                    msgClass = "alert-success";
+                }
+                else if (msg.Status.ToString() == "Information")
+                {
+                    msgClass = "alert-info";
+                }
+                else if (msg.Status.ToString() == "Warning")
+                {
+                    msgClass = "alert-warning";
+                }
+
+                <div class="alert @msgClass alert-dismissible fade show" role="alert">
+                    <div>
+                        <strong>@msg.Message</strong>
+                    </div>
+                    <span>@Html.Raw(HttpUtility.HtmlEncode(string.IsNullOrEmpty(msg.DetailedMessage) ? "" : msg.DetailedMessage).Replace("\n", "<br/>"))</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">
+                            &times;
+
+                        </span>
+                    </button>
+                </div>
+            }
+            if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error Message!</strong> @ViewBag.Error
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+        }
+
         @RenderBody()
         <hr />
         <footer>

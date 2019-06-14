@@ -187,11 +187,17 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DMPController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logic\DMPLogic.cs" />
+    <Compile Include="Logic\DMPFWFLogic.cs" />
+    <Compile Include="Logic\DMPHorizonLogic.cs" />
+    <Compile Include="Logic\Interfaces\IDMPLogic.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\RDA-DMP\Distribution.cs" />
     <Compile Include="Models\RDA-DMP\Host.cs" />
@@ -210,8 +216,10 @@
     <Compile Include="Models\RDA-DMP\DMStaff.cs" />
     <Compile Include="Models\RDA-DMP\Funding.cs" />
     <Compile Include="Models\RDA-DMP\Project.cs" />
+    <Compile Include="Models\Utils\MessageResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ConvertDMPViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -268,7 +276,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Convert.cshtml" />
+    <Content Include="Views\DMP\Convert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
