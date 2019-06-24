@@ -15,7 +15,7 @@ namespace maDMPTranslator.Logic
         {
             AnswersDict["FAIR_DATA"] = "AAAA";
 
-            AnswersDict["DATA_SUMMARY_1"] = "Answer_Data Summary";
+            AnswersDict["DATA_SUMMARY_1"] = "Answer_Data Summary as Carlos {1}";
 
             //AnswersDict["DATA_SUMMARY_1_1"] = "What is the purpose of the data collection/generation and its relation to the objectives of the project?";
             //AnswersDict["DATA_SUMMARY_1_2"] = "What types and formats of data will the project generate/collect?";
