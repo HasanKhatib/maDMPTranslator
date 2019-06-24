@@ -9,9 +9,9 @@ namespace maDMPTranslator.Logic
     public class DMPFWFLogic : IDMPLogic
     {
         public Dictionary<string, string> QuestionsDict = null;
-        public Dictionary<string, string> AnswersDict = null;
+        public Dictionary<string, List<string>> AnswersDict = null;
 
-        public Dictionary<string, string> InitializeAnswersDict()
+        public Dictionary<string, List<string>> InitializeAnswersDict()
         {
             throw new NotImplementedException();
         }
