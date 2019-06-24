@@ -1,0 +1,569 @@
+  1 {
+  2   "definitions": {},
+  3   "$schema": "http://json-schema.org/draft-07/schema#",
+  4   "$id": "http://example.com/root.json",
+  5   "type": "object",
+  6   "title": "The Root Schema",
+  7   "required": [
+  8     "dmp"
+  9   ],
+ 10   "properties": {
+ 11     "dmp": {
+ 12       "$id": "#/properties/dmp",
+ 13       "type": "object",
+ 14       "title": "The Dmp Schema",
+ 15       "required": [
+ 16         "title",
+ 17         "description",
+ 18         "created",
+ 19         "modified",
+ 20         "project",
+ 21         "cost",
+ 22         "_projectDefinition",
+ 23         "contact",
+ 24         "language",
+ 25         "ethical_issues_exist",
+ 26         "ethical_issues_reported",
+ 27         "ethical_issues_description",
+ 28         "dataset"
+ 29       ],
+ 30       "properties": {
+ 31         "title": {
+ 32           "$id": "#/properties/dmp/properties/title",
+ 33           "type": "string",
+ 34           "title": "The Title Schema",
+ 35           "default": "",
+ 36           "examples": [
+ 37             "CORRELATING LA MUSEUM VISITORS TO CRIMES IN LA"
+ 38           ],
+ 39           "pattern": "^(.*)$"
+ 40         },
+ 41         "description": {
+ 42           "$id": "#/properties/dmp/properties/description",
+ 43           "type": "string",
+ 44           "title": "The Description Schema",
+ 45           "default": "",
+ 46           "examples": [
+ 47             "This data management plan provides assistance and clarification of the process of testing the correlation between numbers of museums visitors’ city and numbers of crimes in Los Angeles."
+ 48           ],
+ 49           "pattern": "^(.*)$"
+ 50         },
+ 51         "created": {
+ 52           "$id": "#/properties/dmp/properties/created",
+ 53           "type": "string",
+ 54           "title": "The Created Schema",
+ 55           "default": "",
+ 56           "examples": [
+ 57             "2018-07-23T10:10:23.6"
+ 58           ],
+ 59           "pattern": "^(.*)$"
+ 60         },
+ 61         "modified": {
+ 62           "$id": "#/properties/dmp/properties/modified",
+ 63           "type": "string",
+ 64           "title": "The Modified Schema",
+ 65           "default": "",
+ 66           "examples": [
+ 67             "2019-04-20T00:00:00"
+ 68           ],
+ 69           "pattern": "^(.*)$"
+ 70         },
+ 71         "project": {
+ 72           "$id": "#/properties/dmp/properties/project",
+ 73           "type": "array",
+ 74           "title": "The Project Schema",
+ 75           "items": {
+ 76             "$id": "#/properties/dmp/properties/project/items",
+ 77             "type": "object",
+ 78             "title": "The Items Schema",
+ 79             "required": [
+ 80               "title",
+ 81               "description",
+ 82               "projectStart",
+ 83               "projectEnd",
+ 84               "_funding"
+ 85             ],
+ 86             "properties": {
+ 87               "title": {
+ 88                 "$id": "#/properties/dmp/properties/project/items/properties/title",
+ 89                 "type": "string",
+ 90                 "title": "The Title Schema",
+ 91                 "default": "",
+ 92                 "examples": [
+ 93                   "TU Wien - Data Stewardship 2019S - Exercise 1"
+ 94                 ],
+ 95                 "pattern": "^(.*)$"
+ 96               },
+ 97               "description": {
+ 98                 "$id": "#/properties/dmp/properties/project/items/properties/description",
+ 99                 "type": "string",
+100                 "title": "The Description Schema",
+101                 "default": "",
+102                 "examples": [
+103                   "The exercise consists of two parts: data science use case - to design an experiment that uses open data; data management - to create a data management plan and publish your experiment;"
+104                 ],
+105                 "pattern": "^(.*)$"
+106               },
+107               "projectStart": {
+108                 "$id": "#/properties/dmp/properties/project/items/properties/projectStart",
+109                 "type": "string",
+110                 "title": "The Projectstart Schema",
+111                 "default": "",
+112                 "examples": [
+113                   "2019-03-11T00:00:00"
+114                 ],
+115                 "pattern": "^(.*)$"
+116               },
+117               "projectEnd": {
+118                 "$id": "#/properties/dmp/properties/project/items/properties/projectEnd",
+119                 "type": "string",
+120                 "title": "The Projectend Schema",
+121                 "default": "",
+122                 "examples": [
+123                   "2019-04-22T23:59:00"
+124                 ],
+125                 "pattern": "^(.*)$"
+126               },
+127               "_funding": {
+128                 "$id": "#/properties/dmp/properties/project/items/properties/_funding",
+129                 "type": "array",
+130                 "title": "The _funding Schema"
+131               }
+132             }
+133           }
+134         },
+135         "cost": {
+136           "$id": "#/properties/dmp/properties/cost",
+137           "type": "array",
+138           "title": "The Cost Schema",
+139           "items": {
+140             "$id": "#/properties/dmp/properties/cost/items",
+141             "type": "object",
+142             "title": "The Items Schema",
+143             "required": [
+144               "title",
+145               "description",
+146               "_costType",
+147               "costValue",
+148               "costUnit"
+149             ],
+150             "properties": {
+151               "title": {
+152                 "$id": "#/properties/dmp/properties/cost/items/properties/title",
+153                 "type": "string",
+154                 "title": "The Title Schema",
+155                 "default": "",
+156                 "examples": [
+157                   "Costs and potential value of long term preservation"
+158                 ],
+159                 "pattern": "^(.*)$"
+160               },
+161               "description": {
+162                 "$id": "#/properties/dmp/properties/cost/items/properties/description",
+163                 "type": "string",
+164                 "title": "The Description Schema",
+165                 "default": "",
+166                 "examples": [
+167                   "Even for the long-term preservation, it is stated on Zenodo that even for future data migration, the DOIs will stay working just as fine according to the same subscription plan."
+168                 ],
+169                 "pattern": "^(.*)$"
+170               },
+171               "_costType": {
+172                 "$id": "#/properties/dmp/properties/cost/items/properties/_costType",
+173                 "type": "string",
+174                 "title": "The _costtype Schema",
+175                 "default": "",
+176                 "examples": [
+177                   "Zenodo"
+178                 ],
+179                 "pattern": "^(.*)$"
+180               },
+181               "costValue": {
+182                 "$id": "#/properties/dmp/properties/cost/items/properties/costValue",
+183                 "type": "string",
+184                 "title": "The Costvalue Schema",
+185                 "default": "",
+186                 "examples": [
+187                   "0.0"
+188                 ],
+189                 "pattern": "^(.*)$"
+190               },
+191               "costUnit": {
+192                 "$id": "#/properties/dmp/properties/cost/items/properties/costUnit",
+193                 "type": "string",
+194                 "title": "The Costunit Schema",
+195                 "default": "",
+196                 "examples": [
+197                   "EUR"
+198                 ],
+199                 "pattern": "^(.*)$"
+200               }
+201             }
+202           }
+203         },
+204         "_projectDefinition": {
+205           "$id": "#/properties/dmp/properties/_projectDefinition",
+206           "type": "string",
+207           "title": "The _projectdefinition Schema",
+208           "default": "",
+209           "examples": [
+210             ""
+211           ],
+212           "pattern": "^(.*)$"
+213         },
+214         "contact": {
+215           "$id": "#/properties/dmp/properties/contact",
+216           "type": "object",
+217           "title": "The Contact Schema",
+218           "required": [
+219             "mail",
+220             "name",
+221             "contact_id"
+222           ],
+223           "properties": {
+224             "mail": {
+225               "$id": "#/properties/dmp/properties/contact/properties/mail",
+226               "type": "string",
+227               "title": "The Mail Schema",
+228               "default": "",
+229               "examples": [
+230                 "HASAN@EMAIL.COM"
+231               ],
+232               "pattern": "^(.*)$"
+233             },
+234             "name": {
+235               "$id": "#/properties/dmp/properties/contact/properties/name",
+236               "type": "string",
+237               "title": "The Name Schema",
+238               "default": "",
+239               "examples": [
+240                 "Hasan Alkhatib"
+241               ],
+242               "pattern": "^(.*)$"
+243             },
+244             "contact_id": {
+245               "$id": "#/properties/dmp/properties/contact/properties/contact_id",
+246               "type": "object",
+247               "title": "The Contact_id Schema",
+248               "required": [
+249                 "contact_id",
+250                 "contact_id_type"
+251               ],
+252               "properties": {
+253                 "contact_id": {
+254                   "$id": "#/properties/dmp/properties/contact/properties/contact_id/properties/contact_id",
+255                   "type": "string",
+256                   "title": "The Contact_id Schema",
+257                   "default": "",
+258                   "examples": [
+259                     "https://orcid.org/0000-0002-1223-9620"
+260                   ],
+261                   "pattern": "^(.*)$"
+262                 },
+263                 "contact_id_type": {
+264                   "$id": "#/properties/dmp/properties/contact/properties/contact_id/properties/contact_id_type",
+265                   "type": "string",
+266                   "title": "The Contact_id_type Schema",
+267                   "default": "",
+268                   "examples": [
+269                     "HTTP-ORCID"
+270                   ],
+271                   "pattern": "^(.*)$"
+272                 }
+273               }
+274             }
+275           }
+276         },
+277         "language": {
+278           "$id": "#/properties/dmp/properties/language",
+279           "type": "string",
+280           "title": "The Language Schema",
+281           "default": "",
+282           "examples": [
+283             "en"
+284           ],
+285           "pattern": "^(.*)$"
+286         },
+287         "ethical_issues_exist": {
+288           "$id": "#/properties/dmp/properties/ethical_issues_exist",
+289           "type": "string",
+290           "title": "The Ethical_issues_exist Schema",
+291           "default": "",
+292           "examples": [
+293             "no"
+294           ],
+295           "pattern": "^(.*)$"
+296         },
+297         "ethical_issues_reported": {
+298           "$id": "#/properties/dmp/properties/ethical_issues_reported",
+299           "type": "string",
+300           "title": "The Ethical_issues_reported Schema",
+301           "default": "",
+302           "examples": [
+303             "no"
+304           ],
+305           "pattern": "^(.*)$"
+306         },
+307         "ethical_issues_description": {
+308           "$id": "#/properties/dmp/properties/ethical_issues_description",
+309           "type": "string",
+310           "title": "The Ethical_issues_description Schema",
+311           "default": "",
+312           "examples": [
+313             "To be covered in the context of the ethics review, ethics section of DoA and ethics deliverables. Include references and related technical aspects if not covered by the former. Input data and the generated data content were completely anonymized, so with that being preserved on Zenodo, there will be no unethical act."
+314           ],
+315           "pattern": "^(.*)$"
+316         },
+317         "dataset": {
+318           "$id": "#/properties/dmp/properties/dataset",
+319           "type": "array",
+320           "title": "The Dataset Schema",
+321           "items": {
+322             "$id": "#/properties/dmp/properties/dataset/items",
+323             "type": "object",
+324             "title": "The Items Schema",
+325             "required": [
+326               "title",
+327               "description",
+328               "type",
+329               "keyword",
+330               "issued",
+331               "personal_data",
+332               "sensitive_data",
+333               "distribution"
+334             ],
+335             "properties": {
+336               "title": {
+337                 "$id": "#/properties/dmp/properties/dataset/items/properties/title",
+338                 "type": "string",
+339                 "title": "The Title Schema",
+340                 "default": "",
+341                 "examples": [
+342                   "LA crime data from 2010 to present"
+343                 ],
+344                 "pattern": "^(.*)$"
+345               },
+346               "description": {
+347                 "$id": "#/properties/dmp/properties/dataset/items/properties/description",
+348                 "type": "string",
+349                 "title": "The Description Schema",
+350                 "default": "",
+351                 "examples": [
+352                   "LA crime data from 2010 to present"
+353                 ],
+354                 "pattern": "^(.*)$"
+355               },
+356               "type": {
+357                 "$id": "#/properties/dmp/properties/dataset/items/properties/type",
+358                 "type": "string",
+359                 "title": "The Type Schema",
+360                 "default": "",
+361                 "examples": [
+362                   "CSV"
+363                 ],
+364                 "pattern": "^(.*)$"
+365               },
+366               "keyword": {
+367                 "$id": "#/properties/dmp/properties/dataset/items/properties/keyword",
+368                 "type": "array",
+369                 "title": "The Keyword Schema",
+370                 "items": {
+371                   "$id": "#/properties/dmp/properties/dataset/items/properties/keyword/items",
+372                   "type": "string",
+373                   "title": "The Items Schema",
+374                   "default": "",
+375                   "examples": [
+376                     "LA",
+377                     "crime",
+378                     "2010"
+379                   ],
+380                   "pattern": "^(.*)$"
+381                 }
+382               },
+383               "issued": {
+384                 "$id": "#/properties/dmp/properties/dataset/items/properties/issued",
+385                 "type": "string",
+386                 "title": "The Issued Schema",
+387                 "default": "",
+388                 "examples": [
+389                   "2019-12-31T00:00:00"
+390                 ],
+391                 "pattern": "^(.*)$"
+392               },
+393               "personal_data": {
+394                 "$id": "#/properties/dmp/properties/dataset/items/properties/personal_data",
+395                 "type": "string",
+396                 "title": "The Personal_data Schema",
+397                 "default": "",
+398                 "examples": [
+399                   "no"
+400                 ],
+401                 "pattern": "^(.*)$"
+402               },
+403               "sensitive_data": {
+404                 "$id": "#/properties/dmp/properties/dataset/items/properties/sensitive_data",
+405                 "type": "string",
+406                 "title": "The Sensitive_data Schema",
+407                 "default": "",
+408                 "examples": [
+409                   "no"
+410                 ],
+411                 "pattern": "^(.*)$"
+412               },
+413               "distribution": {
+414                 "$id": "#/properties/dmp/properties/dataset/items/properties/distribution",
+415                 "type": "array",
+416                 "title": "The Distribution Schema",
+417                 "items": {
+418                   "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items",
+419                   "type": "object",
+420                   "title": "The Items Schema",
+421                   "required": [
+422                     "title",
+423                     "description",
+424                     "format",
+425                     "byte_size",
+426                     "download_url",
+427                     "access_url",
+428                     "data_access",
+429                     "_license",
+430                     "available_till"
+431                   ],
+432                   "properties": {
+433                     "title": {
+434                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/title",
+435                       "type": "string",
+436                       "title": "The Title Schema",
+437                       "default": "",
+438                       "examples": [
+439                         "REPOSITORY"
+440                       ],
+441                       "pattern": "^(.*)$"
+442                     },
+443                     "description": {
+444                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/description",
+445                       "type": "string",
+446                       "title": "The Description Schema",
+447                       "default": "",
+448                       "examples": [
+449                         "REPOSITORY DESCRIPTION"
+450                       ],
+451                       "pattern": "^(.*)$"
+452                     },
+453                     "format": {
+454                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/format",
+455                       "type": "string",
+456                       "title": "The Format Schema",
+457                       "default": "",
+458                       "examples": [
+459                         "CSV"
+460                       ],
+461                       "pattern": "^(.*)$"
+462                     },
+463                     "byte_size": {
+464                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/byte_size",
+465                       "type": "string",
+466                       "title": "The Byte_size Schema",
+467                       "default": "",
+468                       "examples": [
+469                         "#####"
+470                       ],
+471                       "pattern": "^(.*)$"
+472                     },
+473                     "download_url": {
+474                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/download_url",
+475                       "type": "string",
+476                       "title": "The Download_url Schema",
+477                       "default": "",
+478                       "examples": [
+479                         "URL REPOSITORY"
+480                       ],
+481                       "pattern": "^(.*)$"
+482                     },
+483                     "access_url": {
+484                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/access_url",
+485                       "type": "string",
+486                       "title": "The Access_url Schema",
+487                       "default": "",
+488                       "examples": [
+489                         "URL DATA"
+490                       ],
+491                       "pattern": "^(.*)$"
+492                     },
+493                     "data_access": {
+494                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/data_access",
+495                       "type": "string",
+496                       "title": "The Data_access Schema",
+497                       "default": "",
+498                       "examples": [
+499                         "open"
+500                       ],
+501                       "pattern": "^(.*)$"
+502                     },
+503                     "_license": {
+504                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/_license",
+505                       "type": "array",
+506                       "title": "The _license Schema",
+507                       "items": {
+508                         "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/_license/items",
+509                         "type": "object",
+510                         "title": "The Items Schema",
+511                         "required": [
+512                           "license_ref",
+513                           "active_from",
+514                           "start_date"
+515                         ],
+516                         "properties": {
+517                           "license_ref": {
+518                             "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/_license/items/properties/license_ref",
+519                             "type": "string",
+520                             "title": "The License_ref Schema",
+521                             "default": "",
+522                             "examples": [
+523                               "unknown"
+524                             ],
+525                             "pattern": "^(.*)$"
+526                           },
+527                           "active_from": {
+528                             "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/_license/items/properties/active_from",
+529                             "type": "string",
+530                             "title": "The Active_from Schema",
+531                             "default": "",
+532                             "examples": [
+533                               "2010-12-31T00:00:00"
+534                             ],
+535                             "pattern": "^(.*)$"
+536                           },
+537                           "start_date": {
+538                             "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/_license/items/properties/start_date",
+539                             "type": "string",
+540                             "title": "The Start_date Schema",
+541                             "default": "",
+542                             "examples": [
+543                               "2018-12-31T00:00:00"
+544                             ],
+545                             "pattern": "^(.*)$"
+546                           }
+547                         }
+548                       }
+549                     },
+550                     "available_till": {
+551                       "$id": "#/properties/dmp/properties/dataset/items/properties/distribution/items/properties/available_till",
+552                       "type": "string",
+553                       "title": "The Available_till Schema",
+554                       "default": "",
+555                       "examples": [
+556                         "2019-12-31T00:00:00"
+557                       ],
+558                       "pattern": "^(.*)$"
+559                     }
+560                   }
+561                 }
+562               }
+563             }
+564           }
+565         }
+566       }
+567     }
+568   }
+569 }
