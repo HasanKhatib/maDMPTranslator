@@ -13,7 +13,17 @@ namespace maDMPTranslator.Logic
 
         public Dictionary<string, List<string>> InitializeAnswersDict()
         {
-            AnswersDict["FAIR_DATA"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
+            AnswersDict["DATA_SUMMARY "] = new List<string>() { 
+                                                                "In this experiment, {project_description}./n With this purpose, the following datasets (dataset.size) are required:/n [for each ds in dataset: i.	{dataset_title}, ]./n The information contained is in {dataset_laguage} language formatted as {dataset_type} about {dataset_description}. It does {dataset_sensitive_data} contain sensitive data as well as {dataset_personal_data} regarding personal data. {preservation_statement}./n This dataset has been issued on: {dataset_issued}./n The data file has its own Digital Identification {dataset_datasetID_type} which can be accessed through the link {dataset_datasetID}, its total size is of {dataset_distribution_byteSize} bytes./n]",
+                                                                "The porpuse of this experment is to {dmp_description}...",
+                                                            "",
+                                                            "",
+                                                            ""
+};
+
+
+
+
 
             AnswersDict["DATA_SUMMARY_1"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
 
@@ -24,7 +34,12 @@ namespace maDMPTranslator.Logic
             //AnswersDict["DATA_SUMMARY_1_5"] = "What is the expected size of the data?";
             //AnswersDict["DATA_SUMMARY_1_6"] = "To whom might it be useful ('data utility')?";
 
-            AnswersDict["FAIR_2_1"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
+            AnswersDict["FAIR_2_1"] = new List<string>() { 
+                                                            "answer {1}", "answer {1}, {2}",
+                                                            "answer {1}", "answer {1}, {2}",
+
+
+};
 
             //AnswersDict["FAIR_2_1_1"] = "Are the data produced and/or used in the project discoverable with metadata, identifiable and locatable by means of a standard identification mechanism (e.g. persistent and unique identifiers such as Digital Object Identifiers)?";
             //AnswersDict["FAIR_2_1_2"] = "What naming conventions do you follow?";
