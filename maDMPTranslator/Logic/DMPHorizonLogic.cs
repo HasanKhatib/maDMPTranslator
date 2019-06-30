@@ -18,30 +18,43 @@ namespace maDMPTranslator.Logic
             //3: datasets titles (joined)
             //4: language
             //5: dataset type
-            //6 dataset_description
-            //7 dataset_sensitive_data
-            //8 dataset_personal_data
-            //9 preservation_statement
-            //10 dataset_issued
-            //11 dataset_datasetID_type
-            //12 dataset_datasetID
-            //13 dataset_distribution_byteSize
-            //14 dmp_description
-            AnswersDict["DATA_SUMMARY"] = new List<string>() {"In this experiment, {1}." +
+            //6: dataset_description
+            //7: dataset_sensitive_data
+            //8: dataset_personal_data
+            //9: preservation_statement
+            //10: dataset_issued
+            //11: dataset_datasetID_type
+            //12: dataset_datasetID
+            //13: dataset_distribution_byteSize
+            //14: dmp_description
+            //15: dmp_created
+            //16: dmp_modified
+
+            AnswersDict["DATA_SUMMARY_1"] = new List<string>() {"In this experiment, {1}." +
+                                                                //Projects
+                                                                "\n The projects attached are {dmp_project_title} which is about {dmp_project_description}."+
+                                                                "\n The project started on: {dmp_project_projectStart}." +
+                                                                "\n The project ends on: {dmp_project_projectEnd}." +
+                                                                //Funding
+                                                                "\n This is a grant with ID {dmp_project_funding_grantID} given by {dmp_project_funding_funderID}." +
+                                                                "\n Currently the status of the grant is {dmp_project_funding_fundingStatus}." +
+                                                                //Datasets
                                                                 "\n With this purpose, the following datasets are required:" +
                                                                 "\n {3}." +
                                                                 "\n The information contained is in {4} language formatted as {5} about {6}." +
-                                                                " It does {7} contain sensitive data as well as {8} regarding personal data. " +
-                                                                "{9}.\n This dataset has been issued on: {10}." +
-                                                                "\n The data file has its own Digital Identification {11} which can be accessed through the link " +
-                                                                "{12}, its total size is of {13} bytes.\n",
-                                                            "The porpuse of this experment is to {1}.",
+                                                                "\n It does {7} contain sensitive data as well as {8} regarding personal data." +
+                                                                "\n To preserve it, {9}." +
+                                                                "\n This dataset has been issued on: {10}." +
+                                                                "\n The data file has its own Digital Identification {11} which can be accessed through the link: {12} ({13} bytes)" +
+                                                                "\n The porpuse of this experment is to {14}." +
+                                                                "\n Created on: {15}." +
+                                                                "\n Modified on: {16}.",
                                                             "",
                                                             "",
                                                             ""};
 
 
-            AnswersDict["DATA_SUMMARY_1"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
+            //AnswersDict["DATA_SUMMARY_1"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
 
             //AnswersDict["DATA_SUMMARY_1_1"] = "What is the purpose of the data collection/generation and its relation to the objectives of the project?";
             //AnswersDict["DATA_SUMMARY_1_2"] = "What types and formats of data will the project generate/collect?";
@@ -50,7 +63,7 @@ namespace maDMPTranslator.Logic
             //AnswersDict["DATA_SUMMARY_1_5"] = "What is the expected size of the data?";
             //AnswersDict["DATA_SUMMARY_1_6"] = "To whom might it be useful ('data utility')?";
 
-            AnswersDict["FAIR_2_1"] = new List<string>() {  "In order to align the experiment with the basics principles of FAIR the following information has been also attached to this DMP:\n" +
+            AnswersDict["FAIR_2"] = new List<string>() {  "In order to align the experiment with the basics principles of FAIR the following information has been also attached to this DMP:\n" +
                                                             "FAIR" +
                                                             FOR EACH DS IN DATASET [
                                                             "i. {dataset_title}\n" +
@@ -68,8 +81,8 @@ namespace maDMPTranslator.Logic
                                                             "The availability is {dataset_distribution_host_availability}%.\n" +
                                                             "This is repository {dataset_distribution_host_description}. With a technology base on {dataset_distribution_host_storageType}, {dataset_distribution_host_supportsVersioning} regarding versioning support.\n" +
                                                              "The PID System is: {dataset_distribution_host_pidSystem}.\n" +
-                                                            "Certified with: {dataset_distribution_host_certifiedWith}.\n" 
-                                                            "The Backup process consists on {dataset_distribution_host_backupType}; the tasks run regularly with a frequency of {dataset_distribution_host_backupFrequancy}." +
+                                                            "Certified with: {dataset_distribution_host_certifiedWith}.\n" +
+                                                            "The Backup process consists on {dataset_distribution_host_backupType}; the tasks run regularly with a frequency of {dataset_distribution_host_backupFrequancy}."
                                                             ],
 
 
@@ -85,7 +98,7 @@ namespace maDMPTranslator.Logic
             //AnswersDict["FAIR_2_1_4"] = "Do you provide clear version numbers?";
             //AnswersDict["FAIR_2_1_5"] = "What metadata will be created? In case metadata standards do not exist in your discipline, please outline what type of metadata will be created and how.";
 
-            AnswersDict["FAIR_2_2"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
+            //AnswersDict["FAIR_2_2"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
 
             //AnswersDict["FAIR_2_2_1"] = "Which data produced and/or used in the project will be made openly available as the default? If certain datasets cannot be shared (or need to be shared under restrictions), explain why, clearly separating legal and contractual reasons from voluntary restrictions.";
             //AnswersDict["FAIR_2_2_2"] = "Note that in multi-beneficiary projects it is also possible for specific beneficiaries to keep their data closed if relevant provisions are made in the consortium agreement and are in line with the reasons for opting out.";
@@ -100,14 +113,14 @@ namespace maDMPTranslator.Logic
             //AnswersDict["FAIR_2_2_11"] = "Are there well described conditions for access (i.e. a machine readable license)?";
             //AnswersDict["FAIR_2_2_12"] = "How will the identity of the person accessing the data be ascertained?";
 
-            AnswersDict["FAIR_2_3"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
+            //AnswersDict["FAIR_2_3"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
 
             //AnswersDict["FAIR_2_3_1"] = "Are the data produced in the project interoperable, that is allowing data exchange and re-use between researchers, institutions, organisations, countries, etc. (i.e. adhering to standards for formats, as much as possible compliant with available (open) software applications, and in particular facilitating re-combinations with different datasets from different origins)?";
             //AnswersDict["FAIR_2_3_2"] = "What data and metadata vocabularies, standards or methodologies will you follow to make your data interoperable?";
             //AnswersDict["FAIR_2_3_3"] = "Will you be using standard vocabularies for all data types present in your data set, to allow inter-disciplinary interoperability?";
             //AnswersDict["FAIR_2_3_4"] = "In case it is unavoidable that you use uncommon or generate project specific ontologies or vocabularies, will you provide mappings to more commonly used ontologies?";
 
-            AnswersDict["FAIR_2_4"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
+            //AnswersDict["FAIR_2_4"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
 
             //AnswersDict["FAIR_2_4_1"] = "How will the data be licensed to permit the widest re-use possible?";
             //AnswersDict["FAIR_2_4_2"] = "When will the data be made available for re-use? If an embargo is sought to give time to publish or seek patents, specify why and how long this will apply, bearing in mind that research data should be made available as soon as possible.";
@@ -115,7 +128,17 @@ namespace maDMPTranslator.Logic
             //AnswersDict["FAIR_2_4_4"] = "How long is it intended that the data remains re-usable?";
             //AnswersDict["FAIR_2_4_5"] = "Are data quality assurance processes described?";
 
-            AnswersDict["ALLOCATION_3"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
+            AnswersDict["ALLOCATION_3"] = new List<string>() { 
+
+                                                            "Allocation of resources" +
+                                                            "FOR EACH C IN COST [" +
+                                                            "\n The following resources are involved in the DMP:" +
+                                                            "\n {dmp_cost_title}" +
+                                                            "\n Type of cost: {dmp_cost_costType}" +
+                                                            "\n With a total cost of: {dmp_cost_costValue} in {dmp_cost_costUnit}." +
+                                                            "\n The specific purposes are {dmp_cost_description}",
+                                                            "]",
+                                                            "answer {1}, {2}" };
 
             //AnswersDict["ALLOCATION_3_1"] = "What are the costs for making data FAIR in your project?";
             //AnswersDict["ALLOCATION_3_2"] = "How will these be covered? Note that costs related to open access to research data are eligible as part of the Horizon 2020 grant (if compliant with the Grant Agreement conditions).";
