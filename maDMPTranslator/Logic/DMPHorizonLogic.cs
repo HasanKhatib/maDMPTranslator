@@ -13,16 +13,32 @@ namespace maDMPTranslator.Logic
 
         public Dictionary<string, List<string>> InitializeAnswersDict()
         {
-            AnswersDict["DATA_SUMMARY "] = new List<string>() { 
-                                                                "In this experiment, {project_description}./n With this purpose, the following datasets (dataset.size) are required:/n [for each ds in dataset: i.	{dataset_title}, ]./n The information contained is in {dataset_laguage} language formatted as {dataset_type} about {dataset_description}. It does {dataset_sensitive_data} contain sensitive data as well as {dataset_personal_data} regarding personal data. {preservation_statement}./n This dataset has been issued on: {dataset_issued}./n The data file has its own Digital Identification {dataset_datasetID_type} which can be accessed through the link {dataset_datasetID}, its total size is of {dataset_distribution_byteSize} bytes./n]",
-                                                                "The porpuse of this experment is to {dmp_description}...",
+            //1: project description
+            //2: dataset.size
+            //3: datasets titles (joined)
+            //4: language
+            //5: dataset type
+            //6 dataset_description
+            //7 dataset_sensitive_data
+            //8 dataset_personal_data
+            //9 preservation_statement
+            //10 dataset_issued
+            //11 dataset_datasetID_type
+            //12 dataset_datasetID
+            //13 dataset_distribution_byteSize
+            //14 dmp_description
+            AnswersDict["DATA_SUMMARY "] = new List<string>() {"In this experiment, {1}." +
+                                                                "\n With this purpose, the following datasets are required:" +
+                                                                "\n {3}." +
+                                                                "\n The information contained is in {4} language formatted as {5} about {6}." +
+                                                                " It does {7} contain sensitive data as well as {8} regarding personal data. " +
+                                                                "{9}.\n This dataset has been issued on: {10}." +
+                                                                "\n The data file has its own Digital Identification {11} which can be accessed through the link " +
+                                                                "{12}, its total size is of {13} bytes.\n]",
+                                                                "The porpuse of this experment is to {14}.",
                                                             "",
                                                             "",
-                                                            ""
-};
-
-
-
+                                                            ""};
 
 
             AnswersDict["DATA_SUMMARY_1"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
@@ -34,7 +50,7 @@ namespace maDMPTranslator.Logic
             //AnswersDict["DATA_SUMMARY_1_5"] = "What is the expected size of the data?";
             //AnswersDict["DATA_SUMMARY_1_6"] = "To whom might it be useful ('data utility')?";
 
-            AnswersDict["FAIR_2_1"] = new List<string>() { 
+            AnswersDict["FAIR_2_1"] = new List<string>() {
                                                             "answer {1}", "answer {1}, {2}",
                                                             "answer {1}", "answer {1}, {2}",
 

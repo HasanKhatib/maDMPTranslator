@@ -21,7 +21,11 @@ namespace maDMPTranslator.Controllers
         [HttpGet]
         public ActionResult Convert()
         {
-            return View();
+            if (TempData["dmpResult"] != null && !string.IsNullOrEmpty(TempData["dmpResult"].ToString()))
+                return View(new ConvertDMPViewModel() { maDMP = (Models.RDA_DMP.maDMP) TempData["dmpResult"] } );
+            else
+                return View();
+
         }
 
         [HttpPost]

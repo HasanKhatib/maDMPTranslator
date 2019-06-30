@@ -12,5 +12,7 @@ namespace maDMPTranslator.ViewModels
         public HttpPostedFileBase[] Files { get; set; }
         [Required]
         public string Template { get; set; }
+
+        public Models.RDA_DMP.maDMP maDMP { set; get; }
     }
 }

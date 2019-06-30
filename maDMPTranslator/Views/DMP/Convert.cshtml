@@ -27,18 +27,28 @@
 
 }
 
+@{
+    var isDMPLoaded = TempData["jsonContent"] != null && !string.IsNullOrEmpty(TempData["jsonContent"].ToString());
+}
+@if (isDMPLoaded)
+{
+    @Html.ActionLink("Print DMP", "action", TempData["jsonContext"], new { @class = "btn btn-primary mt-2" });
+}
 
-<div class="card text-white bg-dark mb-12 my-5" style="cursor:pointer;" data-toggle="collapse" href="#test">
-    <div class="card-header">
+<div class="card text-white bg-dark mb-12 my-5">
+    <div class="card-header" style="cursor:pointer;" data-toggle="collapse" href="#test">
         Preview Generated DMP
     </div>
-    <div class="card-body collapse" id="test">
+    <div class="card-body collapse show" id="test">
         <h5 class="card-title">CORRELATING LA MUSEUM VISITORS TO CRIMES IN LA</h5>
-        @if (TempData["jsonContent"] != null && !string.IsNullOrEmpty(TempData["jsonContent"].ToString()))
+
+        @if (isDMPLoaded)
         {
-        <p class="card-text">
-            @TempData["jsonContent"].ToString()
-        </p>
+            <p class="card-text">
+                <pre>
+                    @TempData["jsonContent"].ToString()
+                </pre>
+            </p>
         }
         else
         {
