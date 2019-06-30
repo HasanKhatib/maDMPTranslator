@@ -27,7 +27,7 @@ namespace maDMPTranslator.Logic
             //12 dataset_datasetID
             //13 dataset_distribution_byteSize
             //14 dmp_description
-            AnswersDict["DATA_SUMMARY "] = new List<string>() {"In this experiment, {1}." +
+            AnswersDict["DATA_SUMMARY"] = new List<string>() {"In this experiment, {1}." +
                                                                 "\n With this purpose, the following datasets are required:" +
                                                                 "\n {3}." +
                                                                 "\n The information contained is in {4} language formatted as {5} about {6}." +
@@ -50,7 +50,30 @@ namespace maDMPTranslator.Logic
             //AnswersDict["DATA_SUMMARY_1_5"] = "What is the expected size of the data?";
             //AnswersDict["DATA_SUMMARY_1_6"] = "To whom might it be useful ('data utility')?";
 
-            AnswersDict["FAIR_2_1"] = new List<string>() {
+            AnswersDict["FAIR_2_1"] = new List<string>() {  "In order to align the experiment with the basics principles of FAIR the following information has been also attached to this DMP:\n" +
+"Findable" +
+FOR EACH DS IN DATASET [
+"i. {dataset_title}\n" +
+"Keywords: FOR EACH KW IN keyword {dataset_keyword}\n" +
+"To have a better understanding of the data, the following Metadata has been generated: {dataset_metadata_description}\n" +
+"This Metadata is written in {dataset_metadata_languague} Language from the {dataset_metadata_identifier_type} which can be found in {dataset_metadata_identifier_id}.\n" +
+"Accessible" + “"
+"The data in format {dataset_distribution_format} and size {dataset_distribution_size} bytes\n" +
+"The Access to the data is {dataset_distribution_dataAccess} by the URL: {dataset_distribution_accessURL} \n" +
+"To Download it, use the link: {dataset_distribution_downloadURL} \n" +
+"Available until: {dataset_distribution_availableTill}\n" +
+"This dataset is under the license {dataset_distribution_license_license_ref} starting on {dataset_distribution_license_startDate}.\n" + 
+"In addition, the dataset is stored in a Repository with the following specifications: \n" +
+"Name: {dataset_distribution_host_title}.\n" +
+"Located in: {dataset_distribution_host_geoLocation}.\n" +
+"The availability is {dataset_distribution_host_availability}%.\n" +
+"This is repository {dataset_distribution_host_description}. With a technology base on {dataset_distribution_host_storageType}, {dataset_distribution_host_supportsVersioning} regarding versioning support.\n" +
+ "The PID System is: {dataset_distribution_host_pidSystem}.\n" +
+"Certified with: {dataset_distribution_host_certifiedWith}.\n" 
+"The Backup process consists on {dataset_distribution_host_backupType}; the tasks run regularly with a frequency of {dataset_distribution_host_backupFrequancy}." +
+],
+
+
                                                             "answer {1}", "answer {1}, {2}",
                                                             "answer {1}", "answer {1}, {2}",
 
