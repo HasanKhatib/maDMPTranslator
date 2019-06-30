@@ -34,8 +34,8 @@ namespace maDMPTranslator.Logic
                                                                 " It does {7} contain sensitive data as well as {8} regarding personal data. " +
                                                                 "{9}.\n This dataset has been issued on: {10}." +
                                                                 "\n The data file has its own Digital Identification {11} which can be accessed through the link " +
-                                                                "{12}, its total size is of {13} bytes.\n]",
-                                                                "The porpuse of this experment is to {14}.",
+                                                                "{12}, its total size is of {13} bytes.\n",
+                                                            "The porpuse of this experment is to {1}.",
                                                             "",
                                                             "",
                                                             ""};
