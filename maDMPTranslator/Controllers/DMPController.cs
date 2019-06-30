@@ -48,6 +48,7 @@ namespace maDMPTranslator.Controllers
             //    @"\t|\n|\r|\\",
             //    "");
             TempData["jsonContent"] = json;
+            TempData["DMPTemplate"] = convertDMPViewModel.Template;
 
             var result = DMPLogic.ConvertmaDMPtoDMP(json);
             if (result.Success)
