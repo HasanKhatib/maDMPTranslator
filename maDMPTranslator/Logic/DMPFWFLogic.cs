@@ -40,7 +40,7 @@ namespace maDMPTranslator.Logic
                                                                 "\n with ID from {dmp_contact_contactID_identifierType}" +
                                                                 "\n ({dmp_contact_contactID_identifier})",
                                                                 
-                                                                "DONE Y Answer2 {0}"
+                                                                "DONE YYY Answer2 {0}"
 
 
                 };
