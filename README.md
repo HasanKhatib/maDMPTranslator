@@ -23,6 +23,10 @@ This web application is built on .NETFramewrok 4.6.1, and in order to get it run
 ### Generate the readable DMP
 ![maDMP Translator generate pdf](https://user-images.githubusercontent.com/1809095/60439971-13fae700-9c14-11e9-8a8e-fd304eb87e92.jpg)
 
+## Used resources
+We used a self-made DMP to build and test the system, which you can find in the next DOI:
+- [Original DMP and maDMP](https://doi.org/10.5281/zenodo.3265367)
+- [Generated DMP]()
 
 ## License
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
