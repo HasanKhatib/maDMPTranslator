@@ -26,6 +26,7 @@ namespace maDMPTranslator.Logic
             //11 dataset_datasetID
             //12 dataset_distribution_byteSize
             //13 dmp_description
+
             string dataSummary = "In this experiment, {0}." +
                 "\n With this purpose, the following datasets are required:" +
                 "\n {1}." +
@@ -41,59 +42,102 @@ namespace maDMPTranslator.Logic
             };
 
 
+            //1: dataset_keyword
+            //2: dataset_metadata_description
+            //3: dataset_data_quality_assurance
+            //4: dataset_metadata_languague
+            //5: dataset_metadata_identifier_type
+            //6: dataset_metadata_identifier_id
+            //7: dataset_distribution_format
+            //8: dataset_distribution_size
+            //9: dataset_distribution_dataAccess
+            //10: dataset_distribution_accessURL
+            //11: dataset_distribution_downloadURL
+            //12: dataset_distribution_availableTill
+            //13: dataset_distribution_license_license_ref
+            //14: dataset_distribution_license_startDate
+            //15: dataset_distribution_host_title
+            //16: dataset_distribution_host_geoLocation
+            //17: dataset_distribution_host_availability
+            //18: dataset_distribution_host_description
+            //19: dataset_distribution_host_storageType
+            //20: dataset_distribution_host_supportsVersioning
+            //21: dataset_distribution_host_pidSystem
+            //22: dataset_distribution_host_certifiedWith
+            //23: dataset_distribution_host_backupType
+            //24: dataset_distribution_host_backupFrequancy
+            //25: technicalResource_TypedIdentifier_ref
+            //26: technicalResource_TypedIdentifier_Type
+            //27: technicalResource_TypedIdentifier_identifier
 
+                                          
             AnswersDict["FAIR_2"] = new List<string>() {
                 "In order to align the experiment with the basics principles of FAIR the following information has been also attached to this DMP:\n" +
                 "FAIR" +
                 "FOR EACH DS IN DATASET ["+
                 "i. {dataset_title}\n" +
-                "Keywords: FOR EACH KW IN keyword {dataset_keyword}\n" +
-                "To have a better understanding of the data, the following Metadata has been generated: {dataset_metadata_description}\n" +
-                "The convenction used to manage the data are: {dataset_data_quality_assurance}\n" +
-                "This Metadata is written in {dataset_metadata_languague} Language from the {dataset_metadata_identifier_type} which can be found in {dataset_metadata_identifier_id}.\n" +
-                "The data in format {dataset_distribution_format} and size {dataset_distribution_size} bytes\n" +
-                "The Access to the data is {dataset_distribution_dataAccess} by the URL: {dataset_distribution_accessURL} \n" +
-                "To Download it, use the link: {dataset_distribution_downloadURL} \n" +
-                "Available until: {dataset_distribution_availableTill}\n" +
-                "This dataset is under the license {dataset_distribution_license_license_ref} starting on {dataset_distribution_license_startDate}.\n" +
+                "Keywords: FOR EACH KW IN keyword {1}\n" +
+                "To have a better understanding of the data, the following Metadata has been generated: {2}\n" +
+                "The convenction used to manage the data are: {3}\n" +
+                "This Metadata is written in {4} Language from the {5} framework, which can be found in {6}.\n" +
+                "The data is stored in format {7} with a size of {8} bytes\n" +
+                "The Access to the data is {9} by the URL: {10} \n" +
+                "To Download it, use the link: {11} \n" +
+                "Available until: {12}\n" +
+                "This dataset is under the license {13} starting on {14}.\n" +
                 "In addition, the dataset is stored in a Repository with the following specifications: \n" +
-                "Name: {dataset_distribution_host_title}.\n" +
-                "Located in: {dataset_distribution_host_geoLocation}.\n" +
-                "The availability is {dataset_distribution_host_availability}%.\n" +
-                "This is repository {dataset_distribution_host_description}. With a technology base on {dataset_distribution_host_storageType}, {dataset_distribution_host_supportsVersioning} regarding versioning support.\n" +
-                "The PID System is: {dataset_distribution_host_pidSystem}.\n" +
-                "Certified with: {dataset_distribution_host_certifiedWith}.\n" +
-                "The Backup process consists on {dataset_distribution_host_backupType}; the tasks run regularly with a frequency of {dataset_distribution_host_backupFrequancy}."+
+                "Name: {15}.\n" +
+                "Located in: {16}.\n" +
+                "The availability is {17}%.\n" +
+                "This is repository {18}. With a technology base on {19}, {20} regarding versioning support.\n" +
+                "The PID System is: {21}.\n" +
+                "Certified with: {22}.\n" +
+                "The Backup process consists on {23}; the tasks run regularly with a frequency of {24}."+
                 "]"+
 
                 "\n Technical Resoruces" +
-                "\n There are technical resources identified with {technicalResource_TypedIdentifier_ref} with the {technicalResource_TypedIdentifier_Type} code {technicalResource_TypedIdentifier_identifier}."
+                "\n There are technical resources identified with {25} with the {26} code {27}."
             };
+
+            //1: dmp_cost_title
+            //2: dmp_cost_costType
+            //3: dmp_cost_costValue
+            //4: dmp_cost_costUnit
+            //5: dmp_cost_description
 
             AnswersDict["ALLOCATION_3"] = new List<string>() {
                 "Allocation of resources" +
                 "FOR EACH C IN COST [" +
                 "\n The following resources are involved in the DMP:" +
-                "\n {dmp_cost_title}" +
-                "\n Type of cost: {dmp_cost_costType}" +
-                "\n With a total cost of: {dmp_cost_costValue} in {dmp_cost_costUnit}." +
-                "\n The specific purposes are {dmp_cost_description}",
+                "\n {1}" +
+                "\n Type of cost: {2}" +
+                "\n With a total cost of: {3} in the unit of {4}." +
+                "\n The specific purposes are {5}",
                 "]",
                 "answer {1}, {2}" };
+
+            //1: dmp_securityAndPrivacy_title
+            //2: dmp_securityAndPrivacy_description
+            //3:
+            //4:
+            //5:
+
 
             AnswersDict["SECURITY_4"] = new List<string>() {
                 "Data Security" +
                 "FOR EACH SA IN SECURITYANDPRIVACY" +
-                "\n The security {dmp_securityAndPrivacy_title}" +
-                "\n {dmp_securityAndPrivacy_description}",
+                "\n Security aspects regarding {1} are involved." +
+                "\n Which consists in {2}",
                 ""};
 
-            //1 dmp_ethicalIssuesExist
-            //2 dmp_ethicalIssuesDescription
+            //1: dmp_ethicalIssuesExist
+            //2: dmp_ethicalIssuesDescription
+            //3: dmp_ethicalIssuesReport
+
             AnswersDict["ETHICAL_5"] = new List<string>() {
                 "Ethical issues related with the data are involved: {1}" +
                 "\n {2}" +
-                "\n Find out more in: {dmp_ethicalIssuesReport}",
+                "\n Find out more in: {3}",
                 ""
             };
 
