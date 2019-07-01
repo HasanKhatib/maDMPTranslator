@@ -1,0 +1,43 @@
+﻿@model  maDMPTranslator.ViewModels.DMPTemplatePDF
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>dmp</title>
+    @Styles.Render("~/Content/css")
+
+</head>
+<body>
+    @{
+        Dictionary<string, string> questiosns = Model.QuestionsDict;
+        Dictionary<string, List<string>> answers = Model.AnswersDict;
+    }
+    <div class="container">
+        <h2>@questiosns["DATA_SUMMARY_1"]</h2>
+        <p>@answers["DATA_SUMMARY"].First()</p>
+
+        <h2>@questiosns["FAIR_2"]</h2>
+        <p>@answers["FAIR_2"].First()</p>
+
+        <h2>@questiosns["ALLOCATION_3"]</h2>
+        <p>@answers["ALLOCATION_3"].First()</p>
+
+        <h2>@questiosns["SECURITY_4"]</h2>
+        <p>@answers["SECURITY_4"].First()</p>
+
+        <h2>@questiosns["ETHICAL_5"]</h2>
+        <p>@answers["ETHICAL_5"].First()</p>
+
+        <h2>@questiosns["OTHER_6"]</h2>
+        <p>@answers["OTHER_6"].First()</p>
+
+    </div>
+
+</body>
+</html>

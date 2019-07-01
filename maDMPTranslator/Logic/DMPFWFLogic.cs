@@ -39,7 +39,7 @@ namespace maDMPTranslator.Logic
                                                                 "\n email: {dmp_contact_mbox}" +
                                                                 "\n with ID from {dmp_contact_contactID_identifierType}" +
                                                                 "\n ({dmp_contact_contactID_identifier})",
-                                                                
+
                                                                 "DONE YYY Answer2 {0}"
 
 
@@ -90,7 +90,7 @@ namespace maDMPTranslator.Logic
                                                             "The Access to the data is {dataset_distribution_dataAccess} by the URL: {dataset_distribution_accessURL} \n" +
                                                             "To Download it, use the link: {dataset_distribution_downloadURL} \n" +
                                                             "Available until: {dataset_distribution_availableTill}\n" +
-                                                            "This dataset is under the license {dataset_distribution_license_license_ref} starting on {dataset_distribution_license_startDate}.\n" + 
+                                                            "This dataset is under the license {dataset_distribution_license_license_ref} starting on {dataset_distribution_license_startDate}.\n" +
                                                             "In addition, the dataset is stored in a Repository with the following specifications: \n" +
                                                             "Name: {dataset_distribution_host_title}.\n" +
                                                             "Located in: {dataset_distribution_host_geoLocation}.\n" +
@@ -100,7 +100,7 @@ namespace maDMPTranslator.Logic
                                                             "Certified with: {dataset_distribution_host_certifiedWith}.\n" +
                                                             "The Backup process consists on {dataset_distribution_host_backupType}; the tasks run regularly with a frequency of {dataset_distribution_host_backupFrequancy}."+
                                                             "]"+
-                                                            
+
                                                             "\n Technical Resoruces" +
                                                             "\n There are technical resources identified with {technicalResource_TypedIdentifier_ref} with the {technicalResource_TypedIdentifier_Type} code {technicalResource_TypedIdentifier_identifier}.",
 
@@ -112,8 +112,7 @@ namespace maDMPTranslator.Logic
 };
 
 
-            AnswersDict["DATA_AVAILABILITY_STORAGE"] = new List<string>() { 
-
+            AnswersDict["DATA_AVAILABILITY_STORAGE"] = new List<string>() {
                                                             "Allocation of resources" +
                                                             "FOR EACH C IN COST [" +
                                                             "\n The following resources are involved in the DMP:" +
@@ -138,16 +137,8 @@ namespace maDMPTranslator.Logic
 
             AnswersDict["OTHER_6"] = new List<string>() { "There are no Other aspects related.", "answer {1}, {2}" };
 
-            //AnswersDict["OTHER_6"] = "Do you make use of other national/funder/sectorial/departmental procedures for data management? If yes, which ones?";
-
-            //AnswersDict["OTHER_6"] = "Other issues";
-
-            //AnswersDict["ETHICAL_4_1_"] = "AAAA";
-
-
             return AnswersDict;
         }
-
 
 
         public Dictionary<string, string> InitializeQuestionsDict()

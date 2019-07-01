@@ -60,20 +60,20 @@ namespace maDMPTranslator.Controllers
                 AnswersDict = DMPLogic.GetAnswers(result.ReturnedValue).ReturnedValue,
                 QuestionsDict = DMPLogic.GetQuestions().ReturnedValue
             };
+            if (convertDMPViewModel.Template.ToLower().StartsWith("h"))
+                return new Rotativa.ViewAsPdf("HorizonDMP", dataObj) { FileName = "DMP_Horizon.pdf" };
+            else
+                return new Rotativa.ViewAsPdf("FWfDMP", dataObj) { FileName = "DMP_FWF.pdf" };
 
-            return new Rotativa.ViewAsPdf("HorizonDMP", dataObj) { FileName = "DMP.pdf" };
-        }
-
-        public ActionResult GeneratePDF()
-        {
-
-            var report = new Rotativa.ActionAsPdf("HorizonDMP");
-            return report;
         }
 
         public ActionResult HorizonDMP(DMPTemplatePDF dataModel)
         {
+            return View(dataModel);
+        }
 
+        public ActionResult FWfDMP(DMPTemplatePDF dataModel)
+        {
             return View(dataModel);
         }
     }

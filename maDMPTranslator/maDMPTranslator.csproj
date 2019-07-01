@@ -296,6 +296,7 @@
     <Content Include="App_Browsers\qt.browser" />
     <None Include="packages.config" />
     <Content Include="Views\DMP\HorizonDMP.cshtml" />
+    <Content Include="Views\DMP\FWfDMP.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
