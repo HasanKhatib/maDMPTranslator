@@ -8,6 +8,6 @@ namespace maDMPTranslator.Logic.Interfaces
     public interface IDMPLogic
     {
         Dictionary<string, string> InitializeQuestionsDict();
-        Dictionary<string, List<string>> InitializeAnswersDict();
+        Dictionary<string, List<string>> InitializeAnswersDict(Models.RDA_DMP.maDMP maDMP);
     }
 }

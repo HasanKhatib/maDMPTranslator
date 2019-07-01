@@ -11,7 +11,7 @@ namespace maDMPTranslator.Controllers
 {
     public class DMPController : BaseController
     {
-        private static Logic.DMPLogic DMPLogic = new Logic.DMPLogic();
+        private static Logic.DMPLogic DMPLogic = null;
         // GET: DMP
         public ActionResult Index()
         {
@@ -22,7 +22,7 @@ namespace maDMPTranslator.Controllers
         public ActionResult Convert()
         {
             if (TempData["dmpResult"] != null && !string.IsNullOrEmpty(TempData["dmpResult"].ToString()))
-                return View(new ConvertDMPViewModel() { maDMP = (Models.RDA_DMP.maDMP) TempData["dmpResult"] } );
+                return View(new ConvertDMPViewModel() { maDMP = (Models.RDA_DMP.maDMP)TempData["dmpResult"] });
             else
                 return View();
 
@@ -43,19 +43,36 @@ namespace maDMPTranslator.Controllers
 
             json = new StreamReader(convertDMPViewModel.Files.First().InputStream)
                 .ReadToEnd();
-            //json = Regex.Replace(
-            //    json,
-            //    @"\t|\n|\r|\\",
-            //    "");
+            DMPLogic = new Logic.DMPLogic(convertDMPViewModel.Template);
+            var result = DMPLogic.ConvertmaDMPtoDMP(json);
+
             TempData["jsonContent"] = json;
             TempData["DMPTemplate"] = convertDMPViewModel.Template;
+            TempData["DMPAnswers"] = DMPLogic.GetAnswers(result.ReturnedValue).ReturnedValue;
+            TempData["DMPQuestions"] = DMPLogic.GetQuestions().ReturnedValue;
 
-            var result = DMPLogic.ConvertmaDMPtoDMP(json);
+            var dmpData = new DMPTemplatePDF()
+            {
+                AnswersDict = (Dictionary<string, List<string>>)TempData["DMPAnswers"],
+                QuestionsDict = (Dictionary<string, string>)TempData["DMPQuestions"]
+            };
+
             if (result.Success)
+            {
+                var report = new Rotativa.ViewAsPdf("HorizonDMP", new { data = dmpData });
                 TempData["dmpResult"] = result.ReturnedValue;
-            else
+                return report;
+            }
+            else { 
                 ShowMessage(result.Message, result.DetailedMessage, result.Success, result.Status);
-            return RedirectToAction("Convert");
+                return View();
+            }
+            //return RedirectToAction("Convert");
+        }
+
+        public ActionResult HorizonDMP(DMPTemplatePDF data)
+        {
+            return View(data);
         }
     }
 }

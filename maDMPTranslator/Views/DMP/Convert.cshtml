@@ -32,7 +32,7 @@
 }
 @if (isDMPLoaded)
 {
-    @Html.ActionLink("Print DMP", "action", TempData["jsonContext"], new { @class = "btn btn-primary mt-2" });
+    //@Html.ActionLink("Print DMP", "GeneratePDF", TempData["jsonContext"], new { @class = "btn btn-primary mt-2" });
 }
 
 <div class="card text-white bg-dark mb-12 my-5">
@@ -44,7 +44,7 @@
         @if (isDMPLoaded)
         {
             <h5 class="card-title">@Model.maDMP.DMP.Title</h5>
-
+            @TempData["Test"]
             <p class="card-text">
                 <pre>
                     @TempData["jsonContent"].ToString()
