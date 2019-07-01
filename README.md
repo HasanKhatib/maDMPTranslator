@@ -6,4 +6,4 @@ This web application is built on .NETFramewrok 4.6.1, and in order to get it run
 - Windows OS
 - Visual Studio (2015+) with local db
 - IIS installed
-
+- Checkout the project from `https://github.com/HasanKhatib/maDMPTranslator.git`
