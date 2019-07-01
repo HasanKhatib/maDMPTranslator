@@ -78,7 +78,7 @@ namespace maDMPTranslator.Logic
                                                             "]"+
                                                             
                                                             "\n Technical Resoruces" +
-                                                            "\n There are technical resources identified with {technicalResource_TypedIdentifier_ref} with the {technicalResource_TypedIdentifier_Type} code {technicalResource_TypedIdentifier_identifier}",
+                                                            "\n There are technical resources identified with {technicalResource_TypedIdentifier_ref} with the {technicalResource_TypedIdentifier_Type} code {technicalResource_TypedIdentifier_identifier}.",
 
 
                                                             "answer {1}", "answer {1}, {2}",
@@ -112,7 +112,7 @@ namespace maDMPTranslator.Logic
                                                            "\n Find out more in: {dmp_ethicalIssuesReport}",
                                                            "answer {1}, {2}" };
 
-            AnswersDict["OTHER_6"] = new List<string>() { "answer {1}", "answer {1}, {2}" };
+            AnswersDict["OTHER_6"] = new List<string>() { "There are no Other aspects related.", "answer {1}, {2}" };
 
             //AnswersDict["OTHER_6"] = "Do you make use of other national/funder/sectorial/departmental procedures for data management? If yes, which ones?";
 
