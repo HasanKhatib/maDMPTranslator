@@ -63,6 +63,8 @@ namespace maDMPTranslator.Logic
             catch (Exception ex)
             {
                 result.Message = "Error!";
+                result.Success = false;
+
                 result.DetailedMessage = ex.Message;
                 return result;
             }

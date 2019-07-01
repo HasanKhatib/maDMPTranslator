@@ -51,28 +51,30 @@ namespace maDMPTranslator.Controllers
             TempData["DMPAnswers"] = DMPLogic.GetAnswers(result.ReturnedValue).ReturnedValue;
             TempData["DMPQuestions"] = DMPLogic.GetQuestions().ReturnedValue;
 
-            var dmpData = new DMPTemplatePDF()
+            if (result.Success)
+                TempData["dmpResult"] = result.ReturnedValue;
+            else
+                ShowMessage(result.Message, result.DetailedMessage, result.Success, result.Status);
+            var dataObj = new DMPTemplatePDF()
             {
-                AnswersDict = (Dictionary<string, List<string>>)TempData["DMPAnswers"],
-                QuestionsDict = (Dictionary<string, string>)TempData["DMPQuestions"]
+                AnswersDict = DMPLogic.GetAnswers(result.ReturnedValue).ReturnedValue,
+                QuestionsDict = DMPLogic.GetQuestions().ReturnedValue
             };
 
-            if (result.Success)
-            {
-                var report = new Rotativa.ViewAsPdf("HorizonDMP", new { data = dmpData });
-                TempData["dmpResult"] = result.ReturnedValue;
-                return report;
-            }
-            else { 
-                ShowMessage(result.Message, result.DetailedMessage, result.Success, result.Status);
-                return View();
-            }
-            //return RedirectToAction("Convert");
+            return new Rotativa.ViewAsPdf("HorizonDMP", dataObj) { FileName = "DMP.pdf" };
         }
 
-        public ActionResult HorizonDMP(DMPTemplatePDF data)
+        public ActionResult GeneratePDF()
         {
-            return View(data);
+
+            var report = new Rotativa.ActionAsPdf("HorizonDMP");
+            return report;
+        }
+
+        public ActionResult HorizonDMP(DMPTemplatePDF dataModel)
+        {
+
+            return View(dataModel);
         }
     }
 }
