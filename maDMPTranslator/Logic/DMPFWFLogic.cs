@@ -13,62 +13,96 @@ namespace maDMPTranslator.Logic
 
         public Dictionary<string, List<string>> InitializeAnswersDict(Models.RDA_DMP.maDMP maDMP)
         {
-            //1: project description
-            //2: dataset.size
-            //3: datasets titles (joined)
-            //4: language
-            //5: dataset type
-            //6: dataset_description
-            //7: dataset_sensitive_data
-            //8: dataset_personal_data
-            //9: preservation_statement
-            //10: dataset_issued
-            //11: dataset_datasetID_type
-            //12: dataset_datasetID
-            //13: dataset_distribution_byteSize
-            //14: dmp_description
-            //15: dmp_created
-            //16: dmp_modified
-            AnswersDict["DATA_OFFICER"] = new List<string>() {"The responsible for this Data Management Plan (DMP) is: {dmp_contact_name}" +
-                                                                "\n email: {dmp_contact_mbox}" +
-                                                                "\n with ID from {dmp_contact_contactID_identifierType}" +
-                                                                "\n ({dmp_contact_contactID_identifier})" +
+            //There might be some initial information like this:
+                                                                
+                                                                //Data Management Plan
+                                                                //"\n The porpuse of this experment is to {14}." +
+                                                                //"\n Created on: {15}." +
+                                                                //"\n Modified on: {16}.",
+
+
+            
+            //0: dmp_contact_name
+            //1: dmp_contact_mbox
+            //2: dmp_contact_contactID_identifierType
+            //3: dmp_contact_contactID_identifier
+            //4: dmp_dmStaff_contributor_type
+            //5: dmp_contact_name
+            //6: dmp_contact_mbox
+            //7: dmp_contact_contactID_identifierType
+            //8: dmp_contact_contactID_identifier
+            //9: 
+            //10: 
+
+
+            AnswersDict["DATA_OFFICER"] = new List<string>() {"The responsible for this Data Management Plan (DMP) is: {0}" +
+                                                                "\n email: {1}" +
+                                                                "\n with ID from {2}" +
+                                                                "\n ({3})" +
                                                                 "The staff involved in the experiment is integrated by"+
                                                                 "FOR EACH STAFF IN DMSTAFF [" +
-                                                                "\n The responsale for {dmp_dmStaff_contributor_type} is: {dmp_contact_name}" +
-                                                                "\n email: {dmp_contact_mbox}" +
-                                                                "\n with ID from {dmp_contact_contactID_identifierType}" +
-                                                                "\n ({dmp_contact_contactID_identifier})",
+                                                                "\n The responsale for {4} is: {5}" +
+                                                                "\n email: {6}" +
+                                                                "\n with ID from {7}" +
+                                                                "\n ({8})",
                                                                 
                                                                 "DONE YYY Answer2 {0}"
 
 
                 };
+            //0: dmp_description
+            //1: dmp_project_description
+            //2: dmp_project_projectStart
+            //3: dmp_project_projectEnd
+            //4: datasets titles (joined)
+            //5: language
+            //6: dataset type
+            //7 dataset_description
+            //8 dataset_sensitive_data
+            //9 dataset_personal_data
+            //10 preservation_statement
+            //11 dataset_issued
+            //12 dataset_datasetID_type
+            //13 dataset_datasetID
+            //14 dataset_distribution_byteSize
+
+            AnswersDict["DATA_CHARACTERISTICS"] = new List<string>() {
+                                                                "Description of the data" +
+                                                                "The data was generated for {0}." +
 
 
-            AnswersDict["DATA_CHARACTERISTICS"] = new List<string>() {"In this experiment, {1}." +
                                                                 //Projects
-                                                                "\n The projects attached are {dmp_project_title} which is about {dmp_project_description}."+
-                                                                "\n The project started on: {dmp_project_projectStart}." +
-                                                                "\n The project ends on: {dmp_project_projectEnd}." +
-                                                                //Funding
-                                                                "\n This is a grant with ID {dmp_project_funding_grantID} given by {dmp_project_funding_funderID}." +
-                                                                "\n Currently the status of the grant is {dmp_project_funding_fundingStatus}." +
+                                                                "\n More specifically it consists in {1}."+
+                                                                "\n The project started on: {2}." +
+                                                                "\n The project ends on: {3}." +
                                                                 //Datasets
-                                                                "\n With this purpose, the following datasets are required:" +
-                                                                "\n {3}." +
-                                                                "\n The information contained is in {4} language formatted as {5} about {6}." +
-                                                                "\n It does {7} contain sensitive data as well as {8} regarding personal data." +
-                                                                "\n To preserve it, {9}." +
-                                                                "\n This dataset has been issued on: {10}." +
-                                                                "\n The data file has its own Digital Identification {11} which can be accessed through the link: {12} ({13} bytes)" +
-                                                                "\n The porpuse of this experment is to {14}." +
-                                                                "\n Created on: {15}." +
-                                                                "\n Modified on: {16}.",
+                                                                "\n With this purpose, the following datasets are generated:" +
+                                                                "\n {4}." +
+                                                                "\n The information contained is in {5} language formatted as {6} about {7}." +
+                                                                "\n It does {8} contain sensitive data as well as {9} regarding personal data." +
+                                                                "\n To preserve it, some actions have to be taken as {10}." +
+                                                                "\n This dataset has been issued on: {11}." +
+                                                                "\n The data file has its own Digital Identification {12} which can be accessed through the link: {13} ({14} bytes)",
+                                                                
+                                                              
                                                             "",
                                                             "",
                                                             ""};
 
+            //1: 
+            //2: 
+            //3: 
+            //4: 
+            //5: 
+            //6: 
+            //7: 
+            //8: 
+            //9: 
+            //10: 
+            //11: 
+            //12: 
+            //13: 
+            //: 
 
             AnswersDict["DOC_METADATA"] = new List<string>() {  "Documentation and Metadata" +
                                                                 "\n The following Metadata has been generated: {dataset_metadata_description}" +
@@ -111,6 +145,20 @@ namespace maDMPTranslator.Logic
 
 };
 
+            //1: 
+            //2: 
+            //3: 
+            //4: 
+            //5: 
+            //6: 
+            //7: 
+            //8: 
+            //9: 
+            //10: 
+            //11: 
+            //12: 
+            //13: 
+            //: 
 
             AnswersDict["DATA_AVAILABILITY_STORAGE"] = new List<string>() { 
 
@@ -123,13 +171,40 @@ namespace maDMPTranslator.Logic
                                                             "\n The specific purposes are {dmp_cost_description}",
                                                             "]",
                                                             "answer {1}, {2}" };
+            //1: 
+            //2: 
+            //3: 
+            //4: 
+            //5: 
+            //6: 
+            //7: 
+            //8: 
+            //9: 
+            //10: 
+            //11: 
+            //12: 
+            //13: 
+            //: 
 
             AnswersDict["SECURITY_4"] = new List<string>() { "Data Security" +
                                                             "FOR EACH SA IN SECURITYANDPRIVACY" +
                                                             "\n The security {dmp_securityAndPrivacy_title}" +
                                                             "\n {dmp_securityAndPrivacy_description}",
                                                                 "answer {1}, {2}" };
-
+            //1: 
+            //2: 
+            //3: 
+            //4: 
+            //5: 
+            //6: 
+            //7: 
+            //8: 
+            //9: 
+            //10: 
+            //11: 
+            //12: 
+            //13: 
+            //: 
             AnswersDict["LEGAL_ETHICAL"] = new List<string>() {"Ethical Aspects" +
                                                            "\n Ethical issues related with the data are involved: {dmp_ethicalIssuesExist}" +
                                                            "\n {dmp_ethicalIssuesDescription}" +
@@ -143,6 +218,10 @@ namespace maDMPTranslator.Logic
             //AnswersDict["OTHER_6"] = "Other issues";
 
             //AnswersDict["ETHICAL_4_1_"] = "AAAA";
+
+                                                                            //Funding
+                                                                //"\n This is a grant with ID {dmp_project_funding_grantID} given by {dmp_project_funding_funderID}." +
+                                                                //"\n Currently the status of the grant is {dmp_project_funding_fundingStatus}." +
 
 
             return AnswersDict;

@@ -13,22 +13,21 @@ namespace maDMPTranslator.Logic
 
         public Dictionary<string, List<string>> InitializeAnswersDict(Models.RDA_DMP.maDMP maDMP)
         {
-            //1: project description
-            //2: datasets titles (joined)
-            //3: language
-            //4: dataset type
-            //5 dataset_description
-            //6 dataset_sensitive_data
-            //7 dataset_personal_data
-            //8 preservation_statement
-            //9 dataset_issued
-            //10 dataset_datasetID_type
-            //11 dataset_datasetID
-            //12 dataset_distribution_byteSize
-            //13 dmp_description
+            //0: project description
+            //1: datasets titles (joined)
+            //2: language
+            //3: dataset type
+            //4 dataset_description
+            //5 dataset_sensitive_data
+            //6 dataset_personal_data
+            //7 preservation_statement
+            //8 dataset_issued
+            //9 dataset_datasetID_type
+            //10 dataset_datasetID
+            //11 dataset_distribution_byteSize
 
             string dataSummary = "In this experiment, {0}." +
-                "\n With this purpose, the following datasets are required:" +
+                "\n With this purpose, the following datasets are generated:" +
                 "\n {1}." +
                 "\n The information contained is in {2} language formatted as {3} about {4}." +
                 " It does {5} contain sensitive data as well as {6} regarding personal data. " +
