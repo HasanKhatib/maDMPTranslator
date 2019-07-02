@@ -17,8 +17,7 @@ This web application is built on .NETFramewrok 4.6.1, and in order to get it run
 
 ![maDMP Translator workflow](https://user-images.githubusercontent.com/1809095/60459043-65b96680-9c40-11e9-9fdc-ddbba91562de.png)
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=DTqKCBmUi8w)
-
+![Horizon-Demp](https://user-images.githubusercontent.com/1809095/60538960-eee99f80-9d0b-11e9-8597-45c9bfdc194f.gif)
 
 ### Application main page
 ![maDMP Translator main page](https://user-images.githubusercontent.com/1809095/60439700-8ae3b000-9c13-11e9-89c1-1be27bc19224.jpg)
