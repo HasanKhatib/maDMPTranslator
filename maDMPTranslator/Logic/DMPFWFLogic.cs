@@ -15,10 +15,11 @@ namespace maDMPTranslator.Logic
         {
             //There might be some initial information like this:
                                                                 
-                                                                //Data Management Plan
-                                                                //"\n The porpuse of this experment is to {14}." +
-                                                                //"\n Created on: {15}." +
-                                                                //"\n Modified on: {16}.",
+                                                                //Data Management Plan {dmp_title}
+                                                                //"\n The porpuse of this experment is to {dmp_description}." +
+                                                                //"\n The language of the experiment in is {dmp_language}" + 
+                                                                //"\n Created on: {dmp_created}." +
+                                                                //"\n Modified on: {dmp_modified}.",
 
 
             
@@ -65,16 +66,18 @@ namespace maDMPTranslator.Logic
             //12 dataset_datasetID_type
             //13 dataset_datasetID
             //14 dataset_distribution_byteSize
+            //15 dataset_keyword
 
             AnswersDict["DATA_CHARACTERISTICS"] = new List<string>() {
                                                                 "Description of the data" +
                                                                 "The data was generated for {0}." +
-
+                                                                "The keyword related to this data are: {15}" +
 
                                                                 //Projects
                                                                 "\n More specifically it consists in {1}."+
                                                                 "\n The project started on: {2}." +
                                                                 "\n The project ends on: {3}." +
+
                                                                 //Datasets
                                                                 "\n With this purpose, the following datasets are generated:" +
                                                                 "\n {4}." +
@@ -89,9 +92,11 @@ namespace maDMPTranslator.Logic
                                                             "",
                                                             ""};
 
-            //1: 
-            //2: 
-            //3: 
+            
+            //0: dataset_metadata_description
+            //1: dataset_metadata_languague
+            //2: dataset_metadata_identifier_type
+            //3: dataset_metadata_identifier_id
             //4: 
             //5: 
             //6: 
@@ -104,124 +109,119 @@ namespace maDMPTranslator.Logic
             //13: 
             //: 
 
-            AnswersDict["DOC_METADATA"] = new List<string>() {  "Documentation and Metadata" +
-                                                                "\n The following Metadata has been generated: {dataset_metadata_description}" +
-                                                                "\n This Metadata is written in {dataset_metadata_languague} Language from the {dataset_metadata_identifier_type} which can be found in {dataset_metadata_identifier_id}." +
-                                                                ""+
+            AnswersDict["DOC_METADATA"] = new List<string>() {  
 
+                                                            "Documentation and Metadata" +
+                                                            //"\n Metadata Standards" +
+                                                            "\n The following Metadata has been generated: {0}" +
+                                                            "\n This Metadata is written in {1} Language following the standard from the {2} which can be found in {3}." +
+                                                                
+                                                            //"\n Documentation of data" +
+                                                            //"In order to align the experiment with the basics principles of FAIR " +
+                                                            //"the following information has been also attached to this DMP:\n" +
 
-
-
-"In order to align the experiment with the basics principles of FAIR the following information has been also attached to this DMP:\n" +
-                                                            "FAIR" +
-                                                            "FOR EACH DS IN DATASET ["+
-                                                            "i. {dataset_title}\n" +
-                                                            "Keywords: FOR EACH KW IN keyword {dataset_keyword}\n" +
-                                                            "To have a better understanding of the data, the following Metadata has been generated: {dataset_metadata_description}\n" +
-                                                            "The convenction used to manage the data are: {dataset_data_quality_assurance}\n" +
-                                                            "This Metadata is written in {dataset_metadata_languague} Language from the {dataset_metadata_identifier_type} which can be found in {dataset_metadata_identifier_id}.\n" +
-                                                            "The data in format {dataset_distribution_format} and size {dataset_distribution_size} bytes\n" +
-                                                            "The Access to the data is {dataset_distribution_dataAccess} by the URL: {dataset_distribution_accessURL} \n" +
-                                                            "To Download it, use the link: {dataset_distribution_downloadURL} \n" +
-                                                            "Available until: {dataset_distribution_availableTill}\n" +
-                                                            "This dataset is under the license {dataset_distribution_license_license_ref} starting on {dataset_distribution_license_startDate}.\n" + 
-                                                            "In addition, the dataset is stored in a Repository with the following specifications: \n" +
-                                                            "Name: {dataset_distribution_host_title}.\n" +
-                                                            "Located in: {dataset_distribution_host_geoLocation}.\n" +
-                                                            "The availability is {dataset_distribution_host_availability}%.\n" +
-                                                            "This is repository {dataset_distribution_host_description}. With a technology base on {dataset_distribution_host_storageType}, {dataset_distribution_host_supportsVersioning} regarding versioning support.\n" +
-                                                             "The PID System is: {dataset_distribution_host_pidSystem}.\n" +
-                                                            "Certified with: {dataset_distribution_host_certifiedWith}.\n" +
-                                                            "The Backup process consists on {dataset_distribution_host_backupType}; the tasks run regularly with a frequency of {dataset_distribution_host_backupFrequancy}."+
-                                                            "]"+
+                                                            //"FOR EACH DS IN DATASET ["+
+                                                            //"\n {dataset_title}" +
+                                                            //"\n Keywords: FOR EACH KW IN keyword {dataset_keyword}" +
+                                                            //"\n To have a better understanding of the data, the following Metadata has been generated: {dataset_metadata_description}\n" +
+                                                            //"\n This Metadata is written in {dataset_metadata_languague} Language from the {dataset_metadata_identifier_type} which can be found in {dataset_metadata_identifier_id}.\n" +
                                                             
-                                                            "\n Technical Resoruces" +
-                                                            "\n There are technical resources identified with {technicalResource_TypedIdentifier_ref} with the {technicalResource_TypedIdentifier_Type} code {technicalResource_TypedIdentifier_identifier}.",
 
-
+                                                            //"\n Data Quality Control"+
+                                                            "\n The processes adopted to assurance the quality of the data are: {dataset_data_quality_assurance}\n",
+                                                            
                                                             "answer {1}", "answer {1}, {2}",
                                                             "answer {1}", "answer {1}, {2}",
 
 
 };
-
-            //1: 
-            //2: 
-            //3: 
-            //4: 
-            //5: 
-            //6: 
-            //7: 
-            //8: 
-            //9: 
-            //10: 
-            //11: 
-            //12: 
-            //13: 
-            //: 
+            //0: dataset_distribution_dataAccess
+            //1: dataset_distribution_accessURL
+            //2: dataset_distribution_downloadURL
+            //3: dataset_distribution_availableTill
+            //4: dataset_distribution_license_license_ref
+            //5: dataset_distribution_license_startDate
+            //6: dataset_distribution_format
+            //7: dataset_distribution_size
+            //8: dataset_distribution_host_title
+            //9: dataset_distribution_host_geoLocation
+            //10: dataset_distribution_host_availability
+            //11: dataset_distribution_host_description
+            //12: dataset_distribution_host_storageType
+            //13: dataset_distribution_host_supportsVersioning
+            //14: dataset_distribution_host_pidSystem
+            //15: dataset_distribution_host_certifiedWith
+            //16: dataset_distribution_host_backupType
+            //17: dataset_distribution_host_backupFrequancy
+            //18: technicalResource_TypedIdentifier_ref
+            //19: technicalResource_TypedIdentifier_Type
+            //20: technicalResource_TypedIdentifier_identifier
+            //21: dmp_cost_title
+            //22: dmp_cost_costType
+            //23: dmp_cost_costValue
+            //24: dmp_cost_costUnit
+            //25: dmp_cost_description
+            //26: dmp_securityAndPrivacy_title
+            //27: 
 
             AnswersDict["DATA_AVAILABILITY_STORAGE"] = new List<string>() { 
 
-                                                            "Allocation of resources" +
-                                                            "FOR EACH C IN COST [" +
-                                                            "\n The following resources are involved in the DMP:" +
-                                                            "\n {dmp_cost_title}" +
-                                                            "\n Type of cost: {dmp_cost_costType}" +
-                                                            "\n With a total cost of: {dmp_cost_costValue} in {dmp_cost_costUnit}." +
-                                                            "\n The specific purposes are {dmp_cost_description}",
-                                                            "]",
-                                                            "answer {1}, {2}" };
-            //1: 
-            //2: 
-            //3: 
-            //4: 
-            //5: 
-            //6: 
-            //7: 
-            //8: 
-            //9: 
-            //10: 
-            //11: 
-            //12: 
-            //13: 
-            //: 
 
-            AnswersDict["SECURITY_4"] = new List<string>() { "Data Security" +
-                                                            "FOR EACH SA IN SECURITYANDPRIVACY" +
-                                                            "\n The security {dmp_securityAndPrivacy_title}" +
-                                                            "\n {dmp_securityAndPrivacy_description}",
-                                                                "answer {1}, {2}" };
-            //1: 
-            //2: 
+                                                            "Data Avalability and Storage" +
+                                                            "\n Data sharing strategy" +
+                                                            "\n The Access to the data is {0} by the URL: {1} \n" +
+                                                            "\n To Download it, use the link: {2} \n" +
+                                                            "\n Available until: {3}\n" +
+                                                            "\n The information is under the license {4} starting on {5}.\n" + 
+                                                           
+                                                            "\n Data storage strategy" +
+                                                            "\n The data is stored in format {6} and size {7} bytes\n" +
+                                                            "\n The Repository used has the following specifications: \n" +
+                                                            "\n Name: {8}.\n" +
+                                                            "\n Located in: {9}.\n" +
+                                                            "\n The availability is {10}%.\n" +
+                                                            "\n This is a repository of {11}." +
+
+                                                            "\n With a technology base on {12}, that {13} regarding versioning support.\n" +
+                                                            "\n The PID System is: {14}.\n" +
+                                                            "\n Certified with: {15}.\n" +
+                                                            "\n The Backup process consists on {16}; the tasks run regularly with a frequency of {17}."+
+                                                            
+
+
+                                                            "\n Technical Resources" +
+                                                            "\n There are technical resources identified with {18} with the {19} code {20}." +
+
+                                                            "\n Allocation of resources" +
+                                                            "\n The following resources are involved in the DMP:" +
+                                                            "\n {21}" +
+                                                            "\n Type of cost: {22}" +
+                                                            "\n With a total cost of: {23} in {24}." +
+                                                            "\n The specific purposes are {25}" +
+
+                                                            "\n Data Security" +
+                                                            "\n The are security aspects as {26}" +
+                                                            "\n Wich consists in {27}",
+                                                        
+
+                                                            "answer {1}, {2}" };
+            //0: dmp_ethicalIssuesExist
+            //1: dmp_ethicalIssuesDescription
+            //2: dmp_ethicalIssuesReport
             //3: 
             //4: 
             //5: 
             //6: 
             //7: 
-            //8: 
-            //9: 
-            //10: 
-            //11: 
-            //12: 
-            //13: 
-            //: 
-            AnswersDict["LEGAL_ETHICAL"] = new List<string>() {"Ethical Aspects" +
-                                                           "\n Ethical issues related with the data are involved: {dmp_ethicalIssuesExist}" +
-                                                           "\n {dmp_ethicalIssuesDescription}" +
-                                                           "\n Find out more in: {dmp_ethicalIssuesReport}",
+
+            AnswersDict["LEGAL_ETHICAL"] = new List<string>() {
+                                                           "\n Ethical Aspects" +
+                                                           "\n Ethical issues related with the data are involved: {0}" +
+                                                           "\n {1}" +
+                                                           "\n Find out more in: {2}",
                                                            "answer {1}, {2}" };
 
-            AnswersDict["OTHER_6"] = new List<string>() { "There are no Other aspects related.", "answer {1}, {2}" };
-
-            //AnswersDict["OTHER_6"] = "Do you make use of other national/funder/sectorial/departmental procedures for data management? If yes, which ones?";
-
-            //AnswersDict["OTHER_6"] = "Other issues";
-
-            //AnswersDict["ETHICAL_4_1_"] = "AAAA";
-
-                                                                            //Funding
-                                                                //"\n This is a grant with ID {dmp_project_funding_grantID} given by {dmp_project_funding_funderID}." +
-                                                                //"\n Currently the status of the grant is {dmp_project_funding_fundingStatus}." +
+            AnswersDict["OTHER_6"] = new List<string>() { "There are no other aspects related.", "answer {1}, {2}" };
 
 
             return AnswersDict;
