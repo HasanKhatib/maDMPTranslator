@@ -17,7 +17,7 @@
       {
         "title": "Costs and potential value of long term preservation",
         "description": "Even for the long-term preservation, it is stated on Zenodo that even for future data migration, the DOIs will stay working just as fine according to the same subscription plan.",
-        "_costType": "Zenodo",
+        "costType": "Zenodo",
         "costValue": "0.0",
         "costUnit": "EUR"
       }
@@ -29,7 +29,7 @@
       "name": "Hasan Alkhatib",
       "contact_id": {
         "contact_id": "https://orcid.org/0000-0002-1223-9620",
-        "contact_id_type": "HTTP-ORCID"
+        "contact_id_type": "HTTP_ORCID"
       }
     },
     "language": "en",
@@ -43,7 +43,10 @@
         "type": "CSV",
         "keyword": ["LA", "crime", "2010"],
         "issued": "2019-12-31T00:00:00",
+		"data_quality_assurance": "unknown",
+		"metadata":"DublinCore",
         "personal_data": "no",
+		"security_and_privacy" : [],
         "sensitive_data": "no",
         "distribution": [
           {
@@ -54,7 +57,7 @@
             "download_url": "URL REPOSITORY",
             "access_url": "URL DATA",
             "data_access": "open",
-            "_license": [
+            "license": [
               {
                 "license_ref": "unknown",
                 "active_from": "2010-12-31T00:00:00",
@@ -70,13 +73,15 @@
         "description": "LA museum visitors",
         "type": "CSV",
         "keyword": ["LA", "museum", "visitors", "2014"],
+		"metadata":"DublinCore",
         "issued": "2015-05-12T00:00:00",
-        "_dataset_id": {
+        "dataset_id": {
           "dataset_id": "10.5281/zenodo.1200361",
           "dataset_id_type": "DOI-RAW"
         },
         "personal_data": "no",
         "sensitive_data": "no",
+		"security_and_privacy" : [],
         "data_quality_assurance": "unknown",
         "distribution": [
           {
@@ -87,7 +92,7 @@
             "download_url": "URL REPOSITORY",
             "access_url": "URL DATA",
             "data_access": "open",
-            "_license": [
+            "license": [
               {
                 "license_ref": "unknown",
                 "active_from": "2010-12-31T00:00:00",

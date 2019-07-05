@@ -1,6 +1,7 @@
 ﻿@model  maDMPTranslator.ViewModels.DMPTemplatePDF
 @{
-    Layout = null;
+    ViewBag.Title = "Horizon";
+    Layout = "~/Views/Shared/_Empty.cshtml";
 }
 
 <!DOCTYPE html>
@@ -16,27 +17,38 @@
 <body>
     @{
         Dictionary<string, string> questiosns = Model.QuestionsDict;
+        Dictionary<string, string> header = Model.HeaderDict;
         Dictionary<string, List<string>> answers = Model.AnswersDict;
     }
     <div class="container">
-        <h2>@questiosns["DATA_SUMMARY_1"]</h2>
-        <p>@answers["DATA_SUMMARY"].First()</p>
+        @{
+            if (Model == null || Model.AnswersDict == null || Model.HeaderDict == null || Model.QuestionsDict == null)
+            { }
+            else
+            {
+                <h1>@Html.Raw(header["title"])</h1>
+                <p>@Html.Raw(header["contact"])</p>
+                <p>@Html.Raw(header["doi"])</p>
 
-        <h2>@questiosns["FAIR_2"]</h2>
-        <p>@answers["FAIR_2"].First()</p>
+                <h2>@Html.Raw(questiosns["DATA_SUMMARY_1"])</h2>
+                <p>@Html.Raw(answers["DATA_SUMMARY"].First())</p>
 
-        <h2>@questiosns["ALLOCATION_3"]</h2>
-        <p>@answers["ALLOCATION_3"].First()</p>
+                <h2>@Html.Raw(questiosns["FAIR_2"])</h2>
+                <p>@Html.Raw(answers["FAIR_2"].First())</p>
 
-        <h2>@questiosns["SECURITY_4"]</h2>
-        <p>@answers["SECURITY_4"].First()</p>
+                <h2>@Html.Raw(questiosns["ALLOCATION_3"])</h2>
+                <p>@Html.Raw(answers["ALLOCATION_3"].First())</p>
 
-        <h2>@questiosns["ETHICAL_5"]</h2>
-        <p>@answers["ETHICAL_5"].First()</p>
+                <h2>@Html.Raw(questiosns["SECURITY_4"])</h2>
+                <p>@Html.Raw(answers["SECURITY_4"].First())</p>
 
-        <h2>@questiosns["OTHER_6"]</h2>
-        <p>@answers["OTHER_6"].First()</p>
+                <h2>@Html.Raw(questiosns["ETHICAL_5"])</h2>
+                <p>@Html.Raw(answers["ETHICAL_5"].First())</p>
 
+                <h2>@Html.Raw(questiosns["OTHER_6"])</h2>
+                <p>@Html.Raw(answers["OTHER_6"].First())</p>
+            }
+        }
     </div>
 
 </body>

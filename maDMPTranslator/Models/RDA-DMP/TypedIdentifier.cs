@@ -10,8 +10,7 @@ namespace maDMPTranslator.Models.RDA_DMP
     public class TypedIdentifier
     {
         [Key]
-        public Guid ID { get; set; }
-        public string Identifier { get; set; }
-        public IdentifierTypeEnum IdentifierType { get; set; }
+        public string contact_id { get; set; }
+        public IdentifierTypeEnum contact_id_type { get; set; }
     }
 }

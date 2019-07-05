@@ -25,9 +25,9 @@ namespace maDMPTranslator.Models.RDA_DMP
         public string Language { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
         public DateTime Modified { get; set; } = DateTime.Now;
-        public YesNoUnkownEnum EthicalssuesExist { get; set; }
-        public string EthicalIssuesReport { get; set; }
-        public string EthicalIssuesDescription { get; set; }
+        public YesNoUnkownEnum Ethical_issues_exist { get; set; }
+        public string Ethical_issues_reported { get; set; }
+        public string Ethical_issues_description { get; set; }
 
 
         public Guid ContactID { get; set; }

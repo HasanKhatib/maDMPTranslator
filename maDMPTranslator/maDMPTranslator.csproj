@@ -297,6 +297,8 @@
     <None Include="packages.config" />
     <Content Include="Views\DMP\HorizonDMP.cshtml" />
     <Content Include="Views\DMP\FWfDMP.cshtml" />
+    <Content Include="Views\Shared\_Empty.cshtml" />
+    <Content Include="Views\DMP\View.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -11,10 +11,11 @@ namespace maDMPTranslator.Models.RDA_DMP
     {
         [Key]
         public Guid ID { get; set; }
-        public Guid DistributionID { get; set; }
+        public string DistributionID { get; set; }
         [ForeignKey("DistributionID")]
         public virtual Distribution Distribution { get; set; }
-        public string License_ref { get; set; }
-        public DateTime StartDate { get; set; }
+        public string license_ref { get; set; }
+        public string active_from { get; set; }
+        public string start_date { get; set; }
     }
 }

@@ -25,6 +25,7 @@ namespace maDMPTranslator.Controllers
             TempData["ViewMessage"] = new MessageResult() { Message = MessageHeader, DetailedMessage = MessageDetails, Success = isSuccess, Status = messageType};
         }
 
+
         protected void ShowMessage(MessageResult msg)
         {
             if (msg.Success)

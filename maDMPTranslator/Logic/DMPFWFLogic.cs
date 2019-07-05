@@ -11,6 +11,11 @@ namespace maDMPTranslator.Logic
         public Dictionary<string, string> QuestionsDict = null;
         public Dictionary<string, List<string>> AnswersDict = null;
 
+        public Dictionary<string, string> InitializeHeaderDict(Models.RDA_DMP.maDMP maDMP)
+        {
+            throw new NotImplementedException();
+        }
+
         public Dictionary<string, List<string>> InitializeAnswersDict(Models.RDA_DMP.maDMP maDMP)
         {
             //1: project description

@@ -47,6 +47,33 @@ namespace maDMPTranslator.Logic
             return result;
         }
 
+        public MessageResult<Dictionary<string, string>> GetHeader(Models.RDA_DMP.maDMP maDMP)
+        {
+            MessageResult<Dictionary<string, string>> result = new MessageResult<Dictionary<string, string>>
+            {
+                Success = false,
+                Status = MessageType.Fail
+            };
+
+            try
+            {
+                var headerDict = _DMPLogicInstance.InitializeHeaderDict(maDMP);
+                result.ReturnedValue = headerDict;
+            }
+            catch (Exception ex)
+            {
+                result.Message = "Error!";
+                result.Success = false;
+
+                result.DetailedMessage = ex.Message;
+                return result;
+            }
+            result.Message = "Done!";
+            result.Success = true;
+            result.Status = MessageType.Success;
+            return result;
+        }
+
         public MessageResult<Dictionary<string,List<string>>> GetAnswers(Models.RDA_DMP.maDMP maDMP)
         {
             MessageResult<Dictionary<string, List<string>>> result = new MessageResult<Dictionary<string, List<string>>>

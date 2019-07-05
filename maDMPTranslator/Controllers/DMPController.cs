@@ -1,4 +1,6 @@
-﻿using maDMPTranslator.ViewModels;
+﻿using maDMPTranslator.Models.RDA_DMP;
+using maDMPTranslator.Models.Utils;
+using maDMPTranslator.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,7 +27,6 @@ namespace maDMPTranslator.Controllers
                 return View(new ConvertDMPViewModel() { maDMP = (Models.RDA_DMP.maDMP)TempData["dmpResult"] });
             else
                 return View();
-
         }
 
         [HttpPost]
@@ -45,6 +46,11 @@ namespace maDMPTranslator.Controllers
                 .ReadToEnd();
             DMPLogic = new Logic.DMPLogic(convertDMPViewModel.Template);
             var result = DMPLogic.ConvertmaDMPtoDMP(json);
+            if(!result.Success)
+            {
+                ShowMessage(result.Message,result.DetailedMessage,result.Success, result.Status);
+                return View();
+            }
 
             TempData["jsonContent"] = json;
             TempData["DMPTemplate"] = convertDMPViewModel.Template;
@@ -57,6 +63,7 @@ namespace maDMPTranslator.Controllers
                 ShowMessage(result.Message, result.DetailedMessage, result.Success, result.Status);
             var dataObj = new DMPTemplatePDF()
             {
+                HeaderDict = DMPLogic.GetHeader(result.ReturnedValue).ReturnedValue,
                 AnswersDict = DMPLogic.GetAnswers(result.ReturnedValue).ReturnedValue,
                 QuestionsDict = DMPLogic.GetQuestions().ReturnedValue
             };
@@ -69,6 +76,13 @@ namespace maDMPTranslator.Controllers
 
         public ActionResult HorizonDMP(DMPTemplatePDF dataModel)
         {
+            if (dataModel == null || dataModel.AnswersDict == null || dataModel.HeaderDict == null || dataModel.QuestionsDict == null)
+            {
+                ShowMessage("There is no data", 
+                    "You didn't follow the standard way to provide data to this page. <br/> <a href=\"http://localhost/maDMPTranslator/DMP/convert\">Click here to go to convert page</a>",
+                    false, MessageType.Warning);
+                return View(dataModel);
+            }
             return View(dataModel);
         }
 

@@ -1,4 +1,5 @@
 ﻿using maDMPTranslator.Logic.Interfaces;
+using maDMPTranslator.Models.RDA_DMP;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,98 +10,109 @@ namespace maDMPTranslator.Logic
     public class DMPHorizonLogic : IDMPLogic
     {
         public Dictionary<string, string> QuestionsDict = new Dictionary<string, string>();
+        public Dictionary<string, string> HeaderDict = new Dictionary<string, string>();
         public Dictionary<string, List<string>> AnswersDict = new Dictionary<string, List<string>>();
+
+
+        public Dictionary<string, string> InitializeHeaderDict(Models.RDA_DMP.maDMP maDMP)
+        {
+            HeaderDict["title"] = maDMP.DMP.Title;
+            HeaderDict["contact"] = @"Name: " + maDMP.DMP.Contact.Name + "<br />Mail:" + maDMP.DMP.Contact.Mail + "<br />ID:" + maDMP.DMP.Contact.contact_id?.contact_id;
+            HeaderDict["doi"] = maDMP.DMP.dmpID?.contact_id;
+            return HeaderDict;
+        }
 
         public Dictionary<string, List<string>> InitializeAnswersDict(Models.RDA_DMP.maDMP maDMP)
         {
-            //1: project description
-            //2: datasets titles (joined)
-            //3: language
-            //4: dataset type
-            //5 dataset_description
-            //6 dataset_sensitive_data
-            //7 dataset_personal_data
-            //8 preservation_statement
-            //9 dataset_issued
-            //10 dataset_datasetID_type
-            //11 dataset_datasetID
-            //12 dataset_distribution_byteSize
-            //13 dmp_description
+            #region data summary
             string dataSummary = "In this experiment, {0}." +
-                "\n With this purpose, the following datasets are required:" +
-                "\n {1}." +
-                "\n The information contained is in {2} language formatted as {3} about {4}." +
-                " It does {5} contain sensitive data as well as {6} regarding personal data. " +
-                "{7}.\n This dataset has been issued on: {8}." +
-                "\n The data file has its own Digital Identification {9} which can be accessed through the link " +
-                "{10}, its total size is of {11} bytes.\n";
+                "<br /> With this purpose, the following datasets are required:" +
+                "<br /> {1}." +
+                "<br />" +
+                "<br /> The information contained is in {2} language formatted as {3}." +
+                " About if there is sensitive data, the answer would be {4}. And for personal data, the answer would be {5}. " +
+                "This dataset has been issued on: {6}." +
+                "<br />";
 
             AnswersDict["DATA_SUMMARY"] = new List<string>() {
-                string.Format(dataSummary,maDMP.DMP.Description,"","","","","","","","","","",""),
-                ""
+                string.Format(dataSummary,
+                //0
+                maDMP.DMP.Description,
+                string.Join(",",maDMP.DMP.Dataset.Select(d=>d.Title)),
+                maDMP.DMP.Language,
+                maDMP.DMP.Dataset?.First().Type,
+                maDMP.DMP.Dataset.First().Sensitive_data,
+                maDMP.DMP.Dataset.First().Personal_data,
+                //6
+                maDMP.DMP.Dataset?.First().Issued)
             };
+            #endregion
 
+            #region FAIR
+            string datasetsFAIRInfo = string.Empty;
+            for (int counter = 0; counter < maDMP.DMP.Dataset.Count; counter++)
+            {
+                datasetsFAIRInfo += counter + 1 + "- " + maDMP.DMP.Dataset.ElementAt(counter).Title + " has the next keywords: " +
+                    "<br/>" + maDMP.DMP.Dataset.ElementAt(counter).Keywords +
+                    "<br/>To have a better understanding of the data, the following Metadata has been generated:" +
+                    "<br/>" + maDMP.DMP.Dataset.ElementAt(counter).metadata +
+                    "<br/>" +
+                    "This data is published in type of " + maDMP.DMP.Dataset.ElementAt(counter).Type + ".";
 
+                //Reusable
+                foreach (Distribution dataset in maDMP.DMP.Dataset.ElementAt(counter).distribution)
+                {
+                    datasetsFAIRInfo += " Theis data set is distributed under license: " + string.Join(",", dataset.license.Select(l => l.license_ref));
+                }
+                datasetsFAIRInfo += "<br/><br/>";
+            }
 
             AnswersDict["FAIR_2"] = new List<string>() {
-                "In order to align the experiment with the basics principles of FAIR the following information has been also attached to this DMP:\n" +
-                "FAIR" +
-                "FOR EACH DS IN DATASET ["+
-                "i. {dataset_title}\n" +
-                "Keywords: FOR EACH KW IN keyword {dataset_keyword}\n" +
-                "To have a better understanding of the data, the following Metadata has been generated: {dataset_metadata_description}\n" +
-                "The convenction used to manage the data are: {dataset_data_quality_assurance}\n" +
-                "This Metadata is written in {dataset_metadata_languague} Language from the {dataset_metadata_identifier_type} which can be found in {dataset_metadata_identifier_id}.\n" +
-                "The data in format {dataset_distribution_format} and size {dataset_distribution_size} bytes\n" +
-                "The Access to the data is {dataset_distribution_dataAccess} by the URL: {dataset_distribution_accessURL} \n" +
-                "To Download it, use the link: {dataset_distribution_downloadURL} \n" +
-                "Available until: {dataset_distribution_availableTill}\n" +
-                "This dataset is under the license {dataset_distribution_license_license_ref} starting on {dataset_distribution_license_startDate}.\n" +
-                "In addition, the dataset is stored in a Repository with the following specifications: \n" +
-                "Name: {dataset_distribution_host_title}.\n" +
-                "Located in: {dataset_distribution_host_geoLocation}.\n" +
-                "The availability is {dataset_distribution_host_availability}%.\n" +
-                "This is repository {dataset_distribution_host_description}. With a technology base on {dataset_distribution_host_storageType}, {dataset_distribution_host_supportsVersioning} regarding versioning support.\n" +
-                "The PID System is: {dataset_distribution_host_pidSystem}.\n" +
-                "Certified with: {dataset_distribution_host_certifiedWith}.\n" +
-                "The Backup process consists on {dataset_distribution_host_backupType}; the tasks run regularly with a frequency of {dataset_distribution_host_backupFrequancy}."+
-                "]"+
-
-                "\n Technical Resoruces" +
-                "\n There are technical resources identified with {technicalResource_TypedIdentifier_ref} with the {technicalResource_TypedIdentifier_Type} code {technicalResource_TypedIdentifier_identifier}."
+                datasetsFAIRInfo
             };
+            #endregion
 
+            #region 3 allocation
+            string allocation = string.Empty;
+            for (int counter = 0; counter < maDMP.DMP.Cost.Count; counter++)
+            {
+                allocation += counter + 1 + "- " + maDMP.DMP.Cost.ElementAt(counter).Title + "." +
+                    "<br/>" + maDMP.DMP.Cost.ElementAt(counter).Description + ". The cost was to match requirements of " + maDMP.DMP.Cost.ElementAt(counter).CostType;
+            }
             AnswersDict["ALLOCATION_3"] = new List<string>() {
-                "Allocation of resources" +
-                "FOR EACH C IN COST [" +
-                "\n The following resources are involved in the DMP:" +
-                "\n {dmp_cost_title}" +
-                "\n Type of cost: {dmp_cost_costType}" +
-                "\n With a total cost of: {dmp_cost_costValue} in {dmp_cost_costUnit}." +
-                "\n The specific purposes are {dmp_cost_description}",
-                "]",
-                "answer {1}, {2}" };
+                allocation
+                };
+            #endregion
 
+            #region 4 security
+            string security = string.Empty;
+            foreach(Dataset dataset in maDMP.DMP.Dataset)
+            {
+                foreach(SecurityAndPrivacy securityAndPrivacy in dataset.security_and_privacy)
+                {
+                    security += securityAndPrivacy.Title + "<br/>" ;
+                }
+            }
+            if (string.IsNullOrEmpty(security))
+                security = "There is no information regarding security issues.";
             AnswersDict["SECURITY_4"] = new List<string>() {
-                "Data Security" +
-                "FOR EACH SA IN SECURITYANDPRIVACY" +
-                "\n The security {dmp_securityAndPrivacy_title}" +
-                "\n {dmp_securityAndPrivacy_description}",
-                ""};
+                security
+            };
+            #endregion
 
             //1 dmp_ethicalIssuesExist
             //2 dmp_ethicalIssuesDescription
+            string ethicalInfo = string.Empty;
+            ethicalInfo += maDMP.DMP.Ethical_issues_description;
             AnswersDict["ETHICAL_5"] = new List<string>() {
-                "Ethical issues related with the data are involved: {1}" +
-                "\n {2}" +
-                "\n Find out more in: {dmp_ethicalIssuesReport}",
-                ""
+               ethicalInfo
             };
 
-            AnswersDict["OTHER_6"] = new List<string>() { "There are no Other aspects related.", "answer {1}, {2}" };
+            AnswersDict["OTHER_6"] = new List<string>() { "There are no Other aspects related."};
 
             return AnswersDict;
         }
+
 
         public Dictionary<string, string> InitializeQuestionsDict()
         {

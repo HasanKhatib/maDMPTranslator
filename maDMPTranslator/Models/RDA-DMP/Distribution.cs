@@ -25,5 +25,6 @@ namespace maDMPTranslator.Models.RDA_DMP
         public string MediaType { get; set; }
         public DataAccessEnum DataAccess { set; get; }
         public DateTime AvailableTill { get; set; }
+        public List<License> license { get; set; }
     }
 }

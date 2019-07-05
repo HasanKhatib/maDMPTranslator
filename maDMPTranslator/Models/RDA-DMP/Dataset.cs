@@ -22,7 +22,10 @@ namespace maDMPTranslator.Models.RDA_DMP
 
         public string Title { get; set; }
         public string Description { get; set; }
-        public DatasetTypeEnum DatasetType { get; set; }
+        
+        //ToDo: DatasetType should follow enum values
+        public string Type { get; set; }
+        public string metadata { get; set; }
         public string Keywords { get; set; }
         public virtual List<string> KeywordsList
         {
@@ -31,14 +34,14 @@ namespace maDMPTranslator.Models.RDA_DMP
 
         public string Issued { get; set; }
         public string Language { get; set; }
-        public YesNoUnkownEnum PersonalData { get; set; }
-        public YesNoUnkownEnum SensitiveData { get; set; }
+        public YesNoUnkownEnum Personal_data { get; set; }
+        public YesNoUnkownEnum Sensitive_data { get; set; }
         public string DataQualityAussurance { get; set; }
         public string PreservationStatement { get; set; }
 
-        public List<SecurityAndPrivacy> SecurityAndPrivacyList { get; set; }
+        public List<SecurityAndPrivacy> security_and_privacy { get; set; }
         public List<TechnicalResource> TechnicalResourcesList { get; set; }
         public List<Metadata> MetadataList { get; set; }
-        public List<Distribution> DistributionList { get; set; }
+        public List<Distribution> distribution { get; set; }
     }
 }

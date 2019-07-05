@@ -45,7 +45,7 @@ namespace maDMPTranslator.Models.Utils
         /// Used in TypeIdentifier Class
         /// </summary>
         public enum IdentifierTypeEnum {
-            ORCID,DOI,URI,HTTPURL
+            ORCID,DOI,URI,HTTPURL,HTTP_ORCID
         }
         /// <summary>
         /// Used in DMStaff class
@@ -58,7 +58,7 @@ namespace maDMPTranslator.Models.Utils
         /// Used in Dataset class
         /// </summary>
         public enum DatasetTypeEnum {
-            CSV
+            CSV,PDF,DOC,DOCS
         }
     }
 }

@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+
+<body>
+    <div class="container body-content">
+        @{
+            if (TempData["ViewMessage"] is maDMPTranslator.Models.Utils.MessageResult)
+            {
+                var msg = TempData["ViewMessage"] as maDMPTranslator.Models.Utils.MessageResult;
+                var msgClass = string.Empty;
+                if (msg.Status.ToString() == "Fail")
+                {
+                    msgClass = "alert-danger";
+                }
+                else if (msg.Status.ToString() == "Success")
+                {
+                    msgClass = "alert-success";
+                }
+                else if (msg.Status.ToString() == "Information")
+                {
+                    msgClass = "alert-info";
+                }
+                else if (msg.Status.ToString() == "Warning")
+                {
+                    msgClass = "alert-warning";
+                }
+
+                <div class="alert @msgClass alert-dismissible fade show" role="alert">
+                    <div>
+                        <strong>@Html.Raw(msg.Message)</strong>
+                    </div>
+                    <span>@Html.Raw(msg.DetailedMessage)</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">
+                            &times;
+
+                        </span>
+                    </button>
+                </div>
+            }
+            if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Error Message!</strong> @ViewBag.Error
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+        }
+
+        @RenderBody()
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+
+</body>
+</html>
