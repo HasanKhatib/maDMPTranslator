@@ -118,7 +118,7 @@ namespace maDMPTranslator.Logic
         {
             QuestionsDict["DATA_SUMMARY_1"] = "1 Data Summary";
 
-            QuestionsDict["FAIR_2"] = "2.1 Making data FAIR";
+            QuestionsDict["FAIR_2"] = "2 Making data FAIR";
 
             QuestionsDict["ALLOCATION_3"] = "3 Allocation of resources";
 

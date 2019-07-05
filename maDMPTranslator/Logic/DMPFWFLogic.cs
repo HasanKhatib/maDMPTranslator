@@ -51,6 +51,8 @@ namespace maDMPTranslator.Logic
                 };
 
 
+            AnswersDict["DATA_SUMMARY_1"] = new List<string>();
+
             AnswersDict["DATA_CHARACTERISTICS"] = new List<string>() {"In this experiment, {1}." +
                                                                 //Projects
                                                                 "\n The projects attached are {dmp_project_title} which is about {dmp_project_description}."+
@@ -145,10 +147,25 @@ namespace maDMPTranslator.Logic
             return AnswersDict;
         }
 
-
         public Dictionary<string, string> InitializeQuestionsDict()
         {
-            throw new NotImplementedException();
+            //QuestionsDict["CONTACT_INFO"] = "1 Data Summary";
+
+            QuestionsDict["DATA_SUMMARY_1"] = "1 Data Summary";
+
+            QuestionsDict["FAIR_2"] = "2 Making data FAIR";
+
+            QuestionsDict["ALLOCATION_3"] = "3 Allocation of resources";
+
+            QuestionsDict["SECURITY_4"] = "4 Data Security";
+
+            QuestionsDict["ETHICAL_5"] = "5 Ethical aspects";
+
+            QuestionsDict["OTHER_6"] = "6 Other issues";
+
+            return QuestionsDict;
         }
+
+
     }
 }
