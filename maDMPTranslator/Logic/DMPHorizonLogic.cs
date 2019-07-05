@@ -38,8 +38,8 @@ namespace maDMPTranslator.Logic
                 string.Format(dataSummary,
                 //0
                 maDMP.DMP.Description,
-                string.Join(",",maDMP.DMP.Dataset.Select(d=>d.Title)),
-                maDMP.DMP.Language,
+                string.Join(", ",maDMP.DMP.Dataset.Select(d=>d.Title)),
+                string.Join(maDMP.DMP.Language,"ENGLISH"),
                 maDMP.DMP.Dataset?.First().Type,
                 maDMP.DMP.Dataset.First().Sensitive_data,
                 maDMP.DMP.Dataset.First().Personal_data,
@@ -52,17 +52,42 @@ namespace maDMPTranslator.Logic
             string datasetsFAIRInfo = string.Empty;
             for (int counter = 0; counter < maDMP.DMP.Dataset.Count; counter++)
             {
-                datasetsFAIRInfo += counter + 1 + "- " + maDMP.DMP.Dataset.ElementAt(counter).Title + " has the next keywords: " +
-                    "<br/>" + maDMP.DMP.Dataset.ElementAt(counter).Keywords +
-                    "<br/>To have a better understanding of the data, the following Metadata has been generated:" +
+                
+                datasetsFAIRInfo += counter + 1 + " - " + maDMP.DMP.Dataset.ElementAt(counter).Title + " has the next keywords: " +
+                   "<br/>";
+
+
+                //CARLOS
+                List<string> keywords = maDMP.DMP.Dataset.ElementAt(counter).KeywordsList;
+                for (int i = 0; i < keywords.Count; i++)
+                {
+                    if (i == (keywords.Count - 1))
+                    {
+                        datasetsFAIRInfo += keywords.ElementAt(i);
+                    }
+                    else
+                    {
+                        datasetsFAIRInfo += keywords.ElementAt(i) + ", ";
+                    }
+                }
+                    datasetsFAIRInfo += "<br/>To have a better understanding of the data, the Metadata has been generated using the standard:" +
                     "<br/>" + maDMP.DMP.Dataset.ElementAt(counter).metadata +
                     "<br/>" +
-                    "This data is published in type of " + maDMP.DMP.Dataset.ElementAt(counter).Type + ".";
+                    "This data is published in type of " + maDMP.DMP.Dataset.ElementAt(counter).Type + "." ;
 
                 //Reusable
                 foreach (Distribution dataset in maDMP.DMP.Dataset.ElementAt(counter).distribution)
                 {
-                    datasetsFAIRInfo += " Theis data set is distributed under license: " + string.Join(",", dataset.license.Select(l => l.license_ref));
+
+                    datasetsFAIRInfo += "<br/>" + "The dataset is stored in a repository with following specifications:";
+                    datasetsFAIRInfo += "<br/>" + "Repository name: " + dataset.Title;
+                    datasetsFAIRInfo += "<br/>" + "The data in format " + dataset.Format + " and size " + dataset.ByteSize + " Bytes.";
+                    datasetsFAIRInfo += "<br/>" + "The access is " + dataset.DataAccess + " to the information is using the URL: " + dataset.AccessURL;
+                    datasetsFAIRInfo += "<br/>" + "To download this file use the URL: " + dataset.DownloadURL;
+                    datasetsFAIRInfo += "<br/>" + "Available until: " + dataset.AvailableTill;
+                    //datasetsFAIRInfo += "<br/>" + "The Access is : " + dataset.DataAccess;
+                    datasetsFAIRInfo += "<br/>" + "This dataset is distributed under the license: " + string.Join(",", dataset.license.Select(l => l.license_ref));
+                    datasetsFAIRInfo += "<br/>";
                 }
                 datasetsFAIRInfo += "<br/><br/>";
             }
@@ -77,7 +102,9 @@ namespace maDMPTranslator.Logic
             for (int counter = 0; counter < maDMP.DMP.Cost.Count; counter++)
             {
                 allocation += counter + 1 + "- " + maDMP.DMP.Cost.ElementAt(counter).Title + "." +
-                    "<br/>" + maDMP.DMP.Cost.ElementAt(counter).Description + ". The cost was to match requirements of " + maDMP.DMP.Cost.ElementAt(counter).CostType;
+                    "<br/>" + maDMP.DMP.Cost.ElementAt(counter).Description + ". The cost for the requirements is " + maDMP.DMP.Cost.ElementAt(counter).CostType;
+                //string value = maDMP.DMP.Cost.ElementAt(counter).Value.ToString;
+                allocation += "<br/>" + "With a total cost of: " + maDMP.DMP.Cost.ElementAt(counter).Value + " in " + maDMP.DMP.Cost.ElementAt(counter).CostUnit;
             }
             AnswersDict["ALLOCATION_3"] = new List<string>() {
                 allocation
@@ -108,7 +135,7 @@ namespace maDMPTranslator.Logic
                ethicalInfo
             };
 
-            AnswersDict["OTHER_6"] = new List<string>() { "There are no Other aspects related."};
+            AnswersDict["OTHER_6"] = new List<string>() { "There are no other aspects to consider related to this experiment."};
 
             return AnswersDict;
         }

@@ -122,8 +122,8 @@ namespace maDMPTranslator.Logic
             AnswersDict["DATA_AVAILABILITY_STORAGE"] = new List<string>() {
                                                             "Allocation of resources" +
                                                             "FOR EACH C IN COST [" +
-                                                            "\n The following resources are involved in the DMP:" +
-                                                            "\n {dmp_cost_title}" +
+                                                            "<br/> The following resources are involved in the DMP:" +
+                                                            "<br/> {dmp_cost_title}" +
                                                             "\n Type of cost: {dmp_cost_costType}" +
                                                             "\n With a total cost of: {dmp_cost_costValue} in {dmp_cost_costUnit}." +
                                                             "\n The specific purposes are {dmp_cost_description}",
