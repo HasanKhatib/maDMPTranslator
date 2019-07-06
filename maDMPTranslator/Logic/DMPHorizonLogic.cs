@@ -29,9 +29,10 @@ namespace maDMPTranslator.Logic
                 "<br /> With this purpose, the following datasets are required:" +
                 "<br /> {1}." +
                 "<br />" +
-                "<br /> The information contained is in {2} language formatted as {3}." +
-                " About if there is sensitive data, the answer would be {4}. And for personal data, the answer would be {5}. " +
-                "This dataset has been issued on: {6}." +
+                "<br /> The information of the DMP is in {2} language." +
+                "<br /> The DMP has been created on: {3} and its last modification has been on {4}" +
+                //"About if there is sensitive data, the answer would be {4}. And for personal data, the answer would be {5}. " +
+                //"This dataset has been issued on: {6}." +
                 "<br />";
 
             AnswersDict["DATA_SUMMARY"] = new List<string>() {
@@ -40,21 +41,30 @@ namespace maDMPTranslator.Logic
                 maDMP.DMP.Description,
                 string.Join(", ",maDMP.DMP.Dataset.Select(d=>d.Title)),
                 string.Join(maDMP.DMP.Language,"ENGLISH"),
-                maDMP.DMP.Dataset?.First().Type,
-                maDMP.DMP.Dataset.First().Sensitive_data,
-                maDMP.DMP.Dataset.First().Personal_data,
-                //6
-                maDMP.DMP.Dataset?.First().Issued)
+                
+                //CARLOS
+                maDMP.DMP.Created,
+                maDMP.DMP.Modified)
             };
+                //maDMP.DMP.Dataset?.First().Type,
+                //maDMP.DMP.Dataset.First().Sensitive_data,
+                //maDMP.DMP.Dataset.First().Personal_data,
+                //6
+                //maDMP.DMP.Dataset?.First().Issued)
+                //};
             #endregion
 
             #region FAIR
             string datasetsFAIRInfo = string.Empty;
             for (int counter = 0; counter < maDMP.DMP.Dataset.Count; counter++)
             {
-                
-                datasetsFAIRInfo += counter + 1 + " - " + maDMP.DMP.Dataset.ElementAt(counter).Title + " has the next keywords: " +
-                   "<br/>";
+
+
+
+                datasetsFAIRInfo += counter + 1 + " - " + maDMP.DMP.Dataset.ElementAt(counter).Title;
+
+                datasetsFAIRInfo += "<br/>" + "Issued on: " + maDMP.DMP.Dataset.ElementAt(counter).Issued;
+                datasetsFAIRInfo += "<br/>" + "Keywords: ";
 
 
                 //CARLOS
@@ -63,17 +73,19 @@ namespace maDMPTranslator.Logic
                 {
                     if (i == (keywords.Count - 1))
                     {
-                        datasetsFAIRInfo += keywords.ElementAt(i);
+                        datasetsFAIRInfo += keywords.ElementAt(i) + ".";
                     }
                     else
                     {
                         datasetsFAIRInfo += keywords.ElementAt(i) + ", ";
                     }
                 }
-                    datasetsFAIRInfo += "<br/>To have a better understanding of the data, the Metadata has been generated using the standard:" +
-                    "<br/>" + maDMP.DMP.Dataset.ElementAt(counter).metadata +
-                    "<br/>" +
-                    "This data is published in type of " + maDMP.DMP.Dataset.ElementAt(counter).Type + "." ;
+                datasetsFAIRInfo += "<br/>The metadata has been generated using the standard: " + maDMP.DMP.Dataset.ElementAt(counter).metadata;
+
+                datasetsFAIRInfo += "<br/>" + "This data is published in type of " + maDMP.DMP.Dataset.ElementAt(counter).Type + "." ;
+                datasetsFAIRInfo += "<br/>" + "The information contained is written in " + string.Join(maDMP.DMP.Dataset.ElementAt(counter).Language,"English") + " Languague.";
+                datasetsFAIRInfo += "<br/>" + "There are " + maDMP.DMP.Dataset.ElementAt(counter).Sensitive_data + " sensitive data either " + maDMP.DMP.Dataset.ElementAt(counter).Personal_data + " personal data related to this dataset.";
+
 
                 //Reusable
                 foreach (Distribution dataset in maDMP.DMP.Dataset.ElementAt(counter).distribution)
@@ -82,7 +94,7 @@ namespace maDMPTranslator.Logic
                     datasetsFAIRInfo += "<br/>" + "The dataset is stored in a repository with following specifications:";
                     datasetsFAIRInfo += "<br/>" + "Repository name: " + dataset.Title;
                     datasetsFAIRInfo += "<br/>" + "The data in format " + dataset.Format + " and size " + dataset.ByteSize + " Bytes.";
-                    datasetsFAIRInfo += "<br/>" + "The access is " + dataset.DataAccess + " to the information is using the URL: " + dataset.AccessURL;
+                    datasetsFAIRInfo += "<br/>" + "The access is " + dataset.DataAccess + " to the information using the URL: " + dataset.AccessURL;
                     datasetsFAIRInfo += "<br/>" + "To download this file use the URL: " + dataset.DownloadURL;
                     datasetsFAIRInfo += "<br/>" + "Available until: " + dataset.AvailableTill;
                     //datasetsFAIRInfo += "<br/>" + "The Access is : " + dataset.DataAccess;

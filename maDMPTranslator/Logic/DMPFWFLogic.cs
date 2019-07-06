@@ -34,7 +34,7 @@ namespace maDMPTranslator.Logic
             //14: dmp_description
             //15: dmp_created
             //16: dmp_modified
-            AnswersDict["DATA_OFFICER"] = new List<string>() {"The responsible for this Data Management Plan (DMP) is: {dmp_contact_name}" +
+            AnswersDict["Data_Officer"] = new List<string>() {"The responsible for this Data Management Plan (DMP) is: {dmp_contact_name}" +
                                                                 "\n email: {dmp_contact_mbox}" +
                                                                 "\n with ID from {dmp_contact_contactID_identifierType}" +
                                                                 "\n ({dmp_contact_contactID_identifier})" +
@@ -150,18 +150,19 @@ namespace maDMPTranslator.Logic
         public Dictionary<string, string> InitializeQuestionsDict()
         {
             //QuestionsDict["CONTACT_INFO"] = "1 Data Summary";
+            QuestionsDict["Data_Officer"] = "Data Officer";
 
-            QuestionsDict["DATA_SUMMARY_1"] = "1 Data Summary";
+            QuestionsDict["Data_Characteristics"] = "I Data_Characteristics";
 
-            QuestionsDict["FAIR_2"] = "2 Making data FAIR";
+            QuestionsDict["Doc_Metadata"] = "II Documentation and Metadata";
 
-            QuestionsDict["ALLOCATION_3"] = "3 Allocation of resources";
+            QuestionsDict["Availability_Storage"] = "III Data Availability and Storage";
 
-            QuestionsDict["SECURITY_4"] = "4 Data Security";
+            QuestionsDict["Legal_Ethical"] = "IV Legal and Ethical Aspects";
 
-            QuestionsDict["ETHICAL_5"] = "5 Ethical aspects";
+            //QuestionsDict["ETHICAL_5"] = "5 Ethical aspects";
 
-            QuestionsDict["OTHER_6"] = "6 Other issues";
+            //QuestionsDict["OTHER_6"] = "6 Other issues";
 
             return QuestionsDict;
         }
