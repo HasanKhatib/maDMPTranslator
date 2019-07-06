@@ -1,6 +1,7 @@
 ﻿@model  maDMPTranslator.ViewModels.DMPTemplatePDF
 @{
-    Layout = null;
+    ViewBag.Title = "Horizon";
+    Layout = "~/Views/Shared/_Empty.cshtml";
 }
 
 <!DOCTYPE html>
@@ -16,24 +17,39 @@
 <body>
     @{
         Dictionary<string, string> questiosns = Model.QuestionsDict;
+        Dictionary<string, string> header = Model.HeaderDict;
         Dictionary<string, List<string>> answers = Model.AnswersDict;
     }
     <div class="container">
-        <h2>@questiosns["Data_Officer"]</h2>
-        <p>@answers["Data_Officer"].First()</p>
+        @{
+            if (Model == null || Model.AnswersDict == null || Model.HeaderDict == null || Model.QuestionsDict == null)
 
-        <h2>@questiosns["Data_Characteristics"]</h2>
-        <p>@answers["Data_Characteristics"].First()</p>
+            {
+                <h1>@Html.Raw(header["title"])</h1>
+                <p>@Html.Raw(header["contact"])</p>
+                <p>@Html.Raw(header["doi"])</p>
+                <p>@Html.Raw("The Logic is here but there are some compilation issues.")</p>
+            }
+            else
+            {
+                <h1>@Html.Raw(header["title"])</h1>
+                <p>@Html.Raw(header["contact"])</p>
+                <p>@Html.Raw(header["doi"])</p>
 
-        <h2>@questiosns["Doc_Metadata"]</h2>
-        <p>@answers["Doc_Metadata"].First()</p>
+                <h2>@Html.Raw(questiosns["data_characteristics"])</h2>
+                <p>@Html.Raw(answers["data_characteristics"].First())</p>
 
-        <h2>@questiosns["Availability_Storage"]</h2>
-        <p>@answers["Availability_Storage"].First()</p>
+                <h2>@Html.Raw(questiosns["Doc_Metadata"])</h2>
+                <p>@Html.Raw(answers["Doc_Metadata"].First())</p>
 
-        <h2>@questiosns["Legal_Ethical"]</h2>
-        <p>@answers["Legal_Ethical"].First()</p>
-        
+                <h2>@Html.Raw(questiosns["Availability_Storage"])</h2>
+                <p>@Html.Raw(answers["Availability_Storage"].First())</p>
+
+                <h2>@Html.Raw(questiosns["Legal_Ethical"])</h2>
+                <p>@Html.Raw(answers["Legal_Ethical"].First())</p>
+
+            }
+        }
     </div>
 
 </body>

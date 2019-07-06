@@ -88,6 +88,13 @@ namespace maDMPTranslator.Controllers
 
         public ActionResult FWfDMP(DMPTemplatePDF dataModel)
         {
+            if (dataModel == null || dataModel.AnswersDict == null || dataModel.HeaderDict == null || dataModel.QuestionsDict == null)
+            {
+                ShowMessage("There is no data",
+                    "You didn't follow the standard way to provide data to this page. <br/> <a href=\"http://localhost/maDMPTranslator/DMP/convert\">Click here to go to convert page</a>",
+                    false, MessageType.Warning);
+                return View(dataModel);
+            }
             return View(dataModel);
         }
     }

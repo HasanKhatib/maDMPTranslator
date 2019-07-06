@@ -134,6 +134,8 @@ namespace maDMPTranslator.Logic
             }
             if (string.IsNullOrEmpty(security))
                 security = "There is no information regarding security issues.";
+
+
             AnswersDict["SECURITY_4"] = new List<string>() {
                 security
             };
@@ -143,6 +145,8 @@ namespace maDMPTranslator.Logic
             //2 dmp_ethicalIssuesDescription
             string ethicalInfo = string.Empty;
             ethicalInfo += maDMP.DMP.Ethical_issues_description;
+
+
             AnswersDict["ETHICAL_5"] = new List<string>() {
                ethicalInfo
             };
